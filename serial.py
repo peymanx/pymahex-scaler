@@ -1,18 +1,10 @@
-import time
 import serial
+import time
 
-
-
-
-ser = serial.serial(
-        port='/dev/ttyAM0', #Replace ttyS0 with ttyAM0 for Pi1,Pi2,Pi0
-        baudrate = 9600,
-
-        timeout=1
-)
-counter=0
-
+ras_ser = serial.Serial('/dev/ttyS0', 9600, timeout= 1)
+ras_ser.flush()
 while True:
-   line = ser.readline()
-   if len(line) > 0:
-      print(line);
+    line = ras_ser.readline().decode('utf-8').rstrip()
+    print(line)
+    time.sleep(1)
+
