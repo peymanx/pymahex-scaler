@@ -1,4 +1,4 @@
-import serial
+from serial import Serial
 import time
 
 ras_ser = serial.Serial('/dev/ttyS0', 9600, timeout= 1)
