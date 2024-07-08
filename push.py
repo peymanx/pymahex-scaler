@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
 import time
+import sys
 
 pin = 40
 
