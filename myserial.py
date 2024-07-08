@@ -15,6 +15,6 @@ ser = serial.Serial(
 counter=0
 
 while True:
-   line = ser.readline()
+   line = ser.read()
    if len(line) > 0:
       print(line);
