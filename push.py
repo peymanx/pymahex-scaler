@@ -12,7 +12,10 @@ while True: # Run forever
     if GPIO.input(pin) == GPIO.LOW and white_pressed == False:
         print("Button WHITE was pushed!")
         white_pressed = True
+
+
+
     if GPIO.input(pin) == GPIO.HIGH:
-        white_pressed == False
+        white_pressed = False
 
 
