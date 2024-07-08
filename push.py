@@ -21,8 +21,3 @@ while True: # Run forever
     if GPIO.input(23) == GPIO.LOW:
         print("Button 23 was RELEASSED!")
 
-
-PIO.input(18) == GPIO.HIGH:
-print("Button 18 was pushed!")
-PIO.input(23) == GPIO.HIGH:
-print("Button 23 was pushed!")
