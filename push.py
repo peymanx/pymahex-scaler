@@ -2,6 +2,13 @@ import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
 import time
 
 pin = 40
+
+if len(sys.argv)>1:
+        pin = int(sys.argv[1])
+
+
+print('Tesing pin %d' % pin)
+
 GPIO.setwarnings(False) # Ignore warning for now
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(pin, GPIO.IN) # Set pin 10 to be an input pin and set initial value to be pulled low (off)
