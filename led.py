@@ -8,7 +8,7 @@ print('Led Tester')
 
 pin = 7
 
-if len(sys.argv>1):
+if len(sys.argv)>1:
         pin = sys.argv[1]
 
 
