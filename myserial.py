@@ -5,13 +5,15 @@ def connect(port):
 
 ser = connect('/dev/ttyS0')
 buf = bytearray()
-while True:
 
+while True:
+    print('.', end='')
     num_bytes = max(1, min(1024, ser.in_waiting))
     data = ser.read(num_bytes)
     if data:
         buf.extend(data)
         print(data)
+        print(buf)
     else:
         # no data to read aka disconnection has occurred
         ser = connect('/dev/ttyS0')
