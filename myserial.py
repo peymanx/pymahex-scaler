@@ -1,20 +1,22 @@
-import time
 import serial
 
+def connect(port):
+    return serial.Serial(port, baudrate=9600, timeout=1)
 
-
-
-ser = serial.Serial(
-        port='/dev/ttyS0', #Replace ttyS0 with ttyAM0 for Pi1,Pi2,Pi0
-        baudrate = 9600,
-        parity=serial.PARITY_NONE,
-        stopbits=serial.STOPBITS_ONE,
-        bytesize=serial.EIGHTBITS,
-        timeout=1
-)
-counter=0
-
+ser = connect('/dev/ttyS0')
+buf = bytearray()
 while True:
-   line = ser.read()
-   if len(line) > 0:
-      print(line);
+
+    num_bytes = max(1, min(1024, ser.in_waiting))
+    data = ser.read(num_bytes)
+    if data:
+        buf.extend(data)
+        print(data)
+    else:
+        # no data to read aka disconnection has occurred
+        ser = connect('/dev/ttyS0')
+        if ser.isOpen():
+            continue
+        else:
+            # could not reconnect
+            break
