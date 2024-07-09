@@ -24,7 +24,7 @@ while True:
         weight = remove(buffer[wn+2:kg])
         if weight.find('.')!=-1:
             print(f'"{weight}"')
-            print("len: " + len(weight))
+            print("len: " + str(len(weight)))
             try:
                 print(float(weight))
             except:
