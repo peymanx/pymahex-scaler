@@ -1,5 +1,5 @@
 import RPi.GPIO as gpio
-import time
+import time, sys
 
 pin = 26
 
@@ -19,5 +19,9 @@ def silent():
 
 
 if __name__ == '__main__':
-    play()
+    delay = 0.5
+
+    if len(sys.argv)>1:
+            delay = float(sys.argv[1])
+    play(delay)
     silent()
