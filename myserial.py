@@ -8,6 +8,7 @@ def connect(port):
 my_serial = connect('/dev/ttyS0')
 
 while True:
+    print('>> sending')
     my_serial.write(b'peymanmajidi')
     time.sleep(1)
 
