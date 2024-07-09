@@ -3,7 +3,7 @@
 import serial
 
 port = "/dev/ttyS0"
-bytes_sent = 12
+bytes_sent = 24
 serialPort = serial.Serial(port, 9600, timeout = 1)
 buffer = ''
 
