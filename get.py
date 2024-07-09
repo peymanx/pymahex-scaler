@@ -7,8 +7,6 @@ bytes_sent = 12
 serialPort = serial.Serial(port, 9600, timeout = 1)
 
 while True:
-    print("...")
-    
     loopback = serialPort.read(bytes_sent)
     print(loopback)
     print(loopback.decode('utf-8'))
