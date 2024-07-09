@@ -13,7 +13,7 @@ print('here')
 
 while True:
    # num_bytes = max(1, min(1024, my_serial.in_waiting))
-    num_bytes = 1
+    num_bytes = 12
     data = my_serial.read(num_bytes)
     print(f'data: "{data.decode("utf-8")}"')
     if data:
