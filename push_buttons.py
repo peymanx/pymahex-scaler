@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO 
 import time
 import sys
+import buzzer
 
 pin_white = 40
 pin_red = 12
@@ -27,7 +28,9 @@ while True: # Run forever
     if GPIO.input(pin_white) == GPIO.LOW and white_pressed == False:
         print("@ White button is pressed")
         white_pressed = True
+        buzzer.play(0.1)
         wait_for_next()
+
         
     if GPIO.input(pin_white) == GPIO.HIGH:
         white_pressed = False
@@ -36,6 +39,7 @@ while True: # Run forever
     if GPIO.input(pin_red) == GPIO.LOW and red_pressed == False:
         print("@ Red Button is pressed")
         red_pressed = True
+        buzzer.play(0.1)
         wait_for_next()
 
     if GPIO.input(pin_red) == GPIO.HIGH:
@@ -45,6 +49,7 @@ while True: # Run forever
     if GPIO.input(pin_green) == GPIO.LOW and green_pressed == False:
         print("@ Green Button is pressed")
         green_pressed = True
+        buzzer.play(0.1)
         wait_for_next()
 
     if GPIO.input(pin_green) == GPIO.HIGH:
