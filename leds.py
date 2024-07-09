@@ -25,26 +25,24 @@ def turn_off(pin):
      print("Turning off " + str(pin))
 
 if len(sys.argv)>1:
-    print(sys.argv[0])
-    print(sys.argv[1])
-    match sys.argv[0]:
+    match sys.argv[1]:
         case 'tehran':
-              if sys.argv[1] == 'on':
+              if sys.argv[2] == 'on':
                 turn_on(pin_tehran)
               else:
                 turn_off(pin_tehran)
         case 'other':
-             if sys.argv[1] == 'on':
+             if sys.argv[2] == 'on':
                 turn_on(pin_others)
              else:
                 turn_off(pin_others)
         case 'reject':
-             if sys.argv[1] == 'on':
+             if sys.argv[2] == 'on':
                 turn_on(pin_reject)
              else:
                 turn_off(pin_reject)
         case 'error': 
-             if sys.argv[1] == 'on':
+             if sys.argv[2] == 'on':
                 turn_on(pin_error)
              else:
                 turn_off(pin_error)
