@@ -3,7 +3,7 @@ import time
 
 
 def connect(port):
-    return serial.Serial(port, baudrate=9600)
+    return serial.Serial(port, baudrate=9600, timeout=0.5)
 
 my_serial = connect('/dev/ttyS0')
 
