@@ -22,6 +22,13 @@ while True:
     kg = buffer.find('kg')
     if wn != -1 and  kg != -1:
         weight = remove(buffer[wn+2:kg])
-        print((weight))
+        if weight.find('.')!=-1:
+            print(f'"{weight}"')
+            print("len: " + len(weight))
+            try:
+                print(float(weight))
+            except:
+                print('error')
+        
         buffer=''
 
