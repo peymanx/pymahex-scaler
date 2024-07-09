@@ -4,10 +4,10 @@ import sys
 
 print('Leds Tester')
 
-pin_tehran = 7
-pin_others = 8
-pin_reject = 25
-pin_error = 24
+pin_tehran = 24
+pin_others = 25
+pin_reject = 8
+pin_error = 7
 
 gpio.setmode(gpio.BCM)
 gpio.setwarnings(False)
@@ -31,18 +31,29 @@ if len(sys.argv)>1:
                 turn_on(pin_tehran)
               else:
                 turn_off(pin_tehran)
-        case 'other':
+        case 'other' | 'others' | 'ostan' | 'shahrestan' | 'providence':
              if sys.argv[2] == 'on':
                 turn_on(pin_others)
              else:
                 turn_off(pin_others)
-        case 'reject':
+        case 'reject' | 'rj' | 'mazad':
              if sys.argv[2] == 'on':
                 turn_on(pin_reject)
              else:
                 turn_off(pin_reject)
-        case 'error': 
+        case 'error' | 'err': 
              if sys.argv[2] == 'on':
                 turn_on(pin_error)
              else:
                 turn_off(pin_error)
+        case 'all': 
+             if sys.argv[2] == 'on':
+                turn_on(pin_tehran)
+                turn_on(pin_others)
+                turn_on(pin_reject)
+                turn_on(pin_error)
+             else:
+                 turn_off(pin_tehran)
+                 turn_off(pin_others)
+                 turn_off(pin_reject)
+                 turn_off(pin_error)
