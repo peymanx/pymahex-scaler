@@ -7,16 +7,13 @@ def connect(port):
 
 my_serial = connect('/dev/ttyS0')
 
-while True:
-    print('>> sending')
-    my_serial.write(b'peymanmajidi')
-    time.sleep(1)
-
 
 buf = bytearray()
 print('here')
+
 while True:
-    num_bytes = max(1, min(1024, my_serial.in_waiting))
+   # num_bytes = max(1, min(1024, my_serial.in_waiting))
+    num_bytes = 1
     data = my_serial.read(num_bytes)
     print(f'data: "{data.decode("utf-8")}"')
     if data:
