@@ -11,5 +11,5 @@ while True:
     
     loopback = serialPort.read(bytes_sent)
     print(loopback)
-    print(loopback.encode('utf-8'))
+    print(loopback.decode('utf-8'))
 
