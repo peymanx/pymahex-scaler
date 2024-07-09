@@ -26,7 +26,7 @@ while True:
         try:
             print(float(weight))
         except:
-            print(-1)
+            ...
         
         buffer=''
 
