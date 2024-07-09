@@ -1,5 +1,5 @@
 import serial
-import time
+
 
 
 def connect(port):
@@ -8,15 +8,10 @@ def connect(port):
 my_serial = connect('/dev/ttyS0')
 
 
-buf = bytearray()
-print('here')
+num_bytes = 1
 
 while True:
-   # num_bytes = max(1, min(1024, my_serial.in_waiting))
-    num_bytes = 1
     data = my_serial.read(num_bytes)
-    #print(f'data: "{data.decode("utf-8")}"')
-    print("...")
     print(data)
 
 
