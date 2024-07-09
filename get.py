@@ -18,9 +18,9 @@ def remove(s):
 while True:
     data = serialPort.read(bytes_sent)
     buffer+=data.decode()
-    wn = buffer.find('wn') 
-    kg = buffer.find('kg')
-    dot = buffer.find('.')
+    wn = buffer.rfind('wn') 
+    kg = buffer.rfind('kg')
+    dot = buffer.rfind('.')
     if wn != -1 and  kg != -1 and dot != -1:
         weight = remove(buffer[wn+2:kg])
         try:
