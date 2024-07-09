@@ -3,22 +3,21 @@ import serial
 def connect(port):
     return serial.Serial(port, baudrate=9600, timeout=1)
 
-ser = connect('/dev/ttyS0')
+my_serial = connect('/dev/ttyS0')
 buf = bytearray()
 print('here')
 while True:
-    num_bytes = max(100, min(1024, ser.in_waiting))
-    print(num_bytes.decode("utf-8"))
-    data = ser.read(num_bytes)
-    print('data: ' + str(data))
+    num_bytes = max(1, min(1024, my_serial.in_waiting))
+    data = my_serial.read(num_bytes)
+    print(f'data: "{data.decode("utf-8")}"')
     if data:
         buf.extend(data)
     else:
-        ser = connect('/dev/ttyS0')
-        if ser.isOpen():
+        my_serial = connect('/dev/ttyS0')
+        if my_serial.isOpen():
             continue
         else:
-            print('failto connect')
+            print('failed to connect')
             break
 
 
