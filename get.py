@@ -22,7 +22,6 @@ while True:
     kg = buffer.find('kg')
     if wn != -1 and  kg != -1:
         weight = remove(buffer[wn+2:kg])
-        if len(weight) == 6:
-            print(float(weight) + "kg")
+        print(float(weight) + "kg")
         buffer=''
 
