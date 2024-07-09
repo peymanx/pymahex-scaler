@@ -10,5 +10,6 @@ buffer = ''
 while True:
     data = serialPort.read(bytes_sent)
     buffer+=data.decode()
-    print(buffer)
+
+    print(f'"{buffer}"\r\n****************************************************************')
 
