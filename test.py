@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import serial
-test_string = "Test serial port ...".encode('utf-8')
+test_string = "hello jkfchdshfjk hsdfjk hjkfh jkshfjk sfhjk shfkjhs jkfhskj fhkjshfjkshjfkhsjkfhjksfhj".encode('utf-8')
 port_list = ["/dev/ttyAMA0","/dev/ttyAMA0","/dev/ttyS0","/dev/ttyS"]
 for port in port_list:
   try:
