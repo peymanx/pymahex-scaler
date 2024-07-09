@@ -23,5 +23,5 @@ while True:
             except:
                 ...
     except KeyboardInterrupt:
-        print('bye bye!')
+        print('\r\nbye bye!')
         break
