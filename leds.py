@@ -24,7 +24,7 @@ def turn_off(pin):
      gpio.output(pin, gpio.LOW)
      print("Turning off " + str(pin))
 
-if len(sys.argv)>2:
+if len(sys.argv)>1:
     match sys.argv[0]:
         case 'tehran':
               if sys.argv[1] == 'on':

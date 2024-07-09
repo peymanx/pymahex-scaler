@@ -5,7 +5,7 @@ import sys
 
 
 print('Led Tester')
-
+gpio.setwarnings(False)
 pin = 7
 
 if len(sys.argv)>1:
