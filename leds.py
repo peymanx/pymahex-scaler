@@ -4,17 +4,17 @@ import sys
 
 print('Leds Tester')
 
-pin_tehran = 24
-pin_others = 25
-pin_reject = 8
-pin_error = 7
+tehran = 24
+providence = 25
+reject = 8
+error = 7
 
 gpio.setmode(gpio.BCM)
 gpio.setwarnings(False)
-gpio.setup(pin_tehran, gpio.OUT)
-gpio.setup(pin_others, gpio.OUT)
-gpio.setup(pin_reject, gpio.OUT)
-gpio.setup(pin_error, gpio.OUT)
+gpio.setup(tehran, gpio.OUT)
+gpio.setup(providence, gpio.OUT)
+gpio.setup(reject, gpio.OUT)
+gpio.setup(error, gpio.OUT)
 
 def turn_on(pin):
      gpio.output(pin, gpio.HIGH)
@@ -28,32 +28,32 @@ if len(sys.argv)>1:
     match sys.argv[1]:
         case 'tehran':
               if sys.argv[2] == 'on':
-                turn_on(pin_tehran)
+                turn_on(tehran)
               else:
-                turn_off(pin_tehran)
+                turn_off(tehran)
         case 'other' | 'others' | 'ostan' | 'shahrestan' | 'providence':
              if sys.argv[2] == 'on':
-                turn_on(pin_others)
+                turn_on(providence)
              else:
-                turn_off(pin_others)
+                turn_off(providence)
         case 'reject' | 'rj' | 'mazad':
              if sys.argv[2] == 'on':
-                turn_on(pin_reject)
+                turn_on(reject)
              else:
-                turn_off(pin_reject)
+                turn_off(reject)
         case 'error' | 'err': 
              if sys.argv[2] == 'on':
-                turn_on(pin_error)
+                turn_on(error)
              else:
-                turn_off(pin_error)
+                turn_off(error)
         case 'all': 
              if sys.argv[2] == 'on':
-                turn_on(pin_tehran)
-                turn_on(pin_others)
-                turn_on(pin_reject)
-                turn_on(pin_error)
+                turn_on(tehran)
+                turn_on(providence)
+                turn_on(reject)
+                turn_on(error)
              else:
-                 turn_off(pin_tehran)
-                 turn_off(pin_others)
-                 turn_off(pin_reject)
-                 turn_off(pin_error)
+                 turn_off(tehran)
+                 turn_off(providence)
+                 turn_off(reject)
+                 turn_off(error)
