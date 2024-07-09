@@ -20,15 +20,13 @@ while True:
     buffer+=data.decode()
     wn = buffer.find('wn') 
     kg = buffer.find('kg')
-    if wn != -1 and  kg != -1:
+    dot = weight.find('.')
+    if wn != -1 and  kg != -1 and dot != -1:
         weight = remove(buffer[wn+2:kg])
-        if weight.find('.')!=-1:
-            #print(f'"{weight}"')
-            #print("len: " + str(len(weight)))
-            try:
-                print(float(weight))
-            except:
-                print('error')
+        try:
+            print(float(weight))
+        except:
+            print(-1)
         
         buffer=''
 
