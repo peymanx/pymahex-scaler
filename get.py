@@ -13,7 +13,7 @@ while True:
     wn = buffer.find('wn') 
     kg = buffer.find('kg')
     if wn != -1 and  kg != -1:
-        weight = buffer[wn+2:kg]
+        weight = float(buffer[wn+2:kg])
         print(weight)
         buffer=''
 
