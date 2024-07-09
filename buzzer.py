@@ -15,4 +15,5 @@ def play(delay=0.5):
     print('Buzzer off')
 
 
-play()
+if __name__ == '__main__':
+    play()
