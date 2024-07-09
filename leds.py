@@ -10,7 +10,7 @@ pin_reject = 25
 pin_error = 24
 
 gpio.setmode(gpio.BCM)
-
+gpio.setwarnings(False)
 gpio.setup(pin_tehran, gpio.OUT)
 gpio.setup(pin_others, gpio.OUT)
 gpio.setup(pin_reject, gpio.OUT)
