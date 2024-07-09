@@ -19,7 +19,7 @@ red_pressed = False
 
 
 def wait_for_next():
-    time.sleep(0.2)
+    time.sleep(0.1)
 
 while True: # Run forever
 
@@ -27,7 +27,7 @@ while True: # Run forever
     if GPIO.input(pin_white) == GPIO.LOW and white_pressed == False:
         print("@ Button White is pressed")
         white_pressed = True
-        wait_for_next():
+        wait_for_next()
         
     if GPIO.input(pin_white) == GPIO.HIGH:
         white_pressed = False
@@ -36,7 +36,7 @@ while True: # Run forever
     if GPIO.input(pin_red) == GPIO.LOW and red_pressed == False:
         print("@ Button Red is pressed")
         red_pressed = True
-        wait_for_next():
+        wait_for_next()
 
     if GPIO.input(pin_red) == GPIO.HIGH:
         red_pressed = False
@@ -45,7 +45,7 @@ while True: # Run forever
     if GPIO.input(pin_green) == GPIO.LOW and green_pressed == False:
         print("@ Button Green is pressed")
         green_pressed = True
-        wait_for_next():
+        wait_for_next()
 
     if GPIO.input(pin_green) == GPIO.HIGH:
         green_pressed = False
