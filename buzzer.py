@@ -7,10 +7,10 @@ gpio.setmode(gpio.BCM)
 gpio.setup(pin, gpio.OUT)
 
 # Buzzer
-def play():
+def play(delay=0.5):
     gpio.output(pin, gpio.HIGH)
     print('Buzzer beeeeeeeeeeeez')
-    time.sleep(0.5)
+    time.sleep(delay)
     gpio.output(pin, gpio.LOW)
     print('Buzzer off')
 
