@@ -1,9 +1,17 @@
 import serial
+import time
+
 
 def connect(port):
-    return serial.Serial(port, baudrate=9600, timeout=1)
+    return serial.Serial(port, baudrate=9600)
 
 my_serial = connect('/dev/ttyS0')
+
+while True:
+    my_serial.write(b'peymanmajidi')
+    time.sleep(1)
+
+
 buf = bytearray()
 print('here')
 while True:
