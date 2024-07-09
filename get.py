@@ -20,7 +20,7 @@ while True:
     buffer+=data.decode()
     wn = buffer.find('wn') 
     kg = buffer.find('kg')
-    dot = weight.find('.')
+    dot = buffer.find('.')
     if wn != -1 and  kg != -1 and dot != -1:
         weight = remove(buffer[wn+2:kg])
         try:
