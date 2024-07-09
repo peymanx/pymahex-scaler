@@ -4,14 +4,12 @@ import serial
 
 port = "/dev/ttyS0"
 bytes_sent = 12
+serialPort = serial.Serial(port, 9600, timeout = 2)
 
 while True:
     print("...")
-    try:
-        serialPort = serial.Serial(port, 9600, timeout = 2)
-        loopback = serialPort.read(bytes_sent)
-        print(loopback)
-        print(loopback.encode('utf-8'))
+    
+    loopback = serialPort.read(bytes_sent)
+    print(loopback)
+    print(loopback.encode('utf-8'))
 
-    except IOError:
-        print ("Error on", port,"\n")
