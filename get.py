@@ -10,7 +10,10 @@ buffer = ''
 while True:
     data = serialPort.read(bytes_sent)
     buffer+=data.decode()
-    if buffer.find('wn') != -1 and buffer.find('kg') != -1:
-        print(buffer)
+    wn = buffer.find('wn') 
+    kg = buffer.find('kg')
+    if wn != -1 and  kg != -1:
+        weight = buffer[wn:kg]
+        print(weight)
         buffer=''
 
