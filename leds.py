@@ -47,7 +47,7 @@ def turn_off_all():
     providence.off()
     error.off()
 
-if __name__ = '__main__':
+if __name__ == '__main__':
     if len(sys.argv)>1:
         match sys.argv[1]:
             case 'tehran':
