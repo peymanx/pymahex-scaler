@@ -10,18 +10,21 @@ while True:
         case 1:
             leds.tehran.on()
         case 2:
-
             leds.providence.on()           
         case 3:
 
             leds.reject.on()           
         case 4:
-
             leds.error.on()         
         case 5:  
             leds.turn_off_all()
-    index+=1
-    if index > 5: index=1
+        case 6:  
+            leds.turn_on_all()
+        case 7:  
+            leds.turn_off_all()
+        case _:  
+            index=0
+    index+=1       
     time.sleep(0.4)
 
 
