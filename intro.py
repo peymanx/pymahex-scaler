@@ -3,7 +3,7 @@ import leds, time
 
 leds.turn_off_all()
 
-index = 0
+index = 1
 
 while True:
     match index:
@@ -20,6 +20,7 @@ while True:
             leds.turn_off_all()
             leds.error.on()           
     index+=1
+    index = index%4+1
     time.sleep(0.5)
 
 
