@@ -80,7 +80,7 @@ while True: # Run forever
         if GPIO.input(pin_white) == GPIO.LOW and white_pressed == False:
             print("@ White button is pressed", color=print.HIGHLIGHTED)
             white_pressed = True
-            buzzer.play(3-index+0.1)
+            buzzer.play((3-index)*0.1+0.01)
             wait_for_next()
             
         if GPIO.input(pin_white) == GPIO.HIGH:
