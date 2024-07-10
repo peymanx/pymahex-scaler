@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO 
 import time
 import sys
-
+import buzzer, leds
 pin_white = 40
 pin_red = 12
 pin_green = 16

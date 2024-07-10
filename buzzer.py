@@ -1,9 +1,9 @@
 import RPi.GPIO as gpio
 import time, sys
 
-pin = 26
+pin = 37
 
-gpio.setmode(gpio.BCM)
+gpio.setmode(gpio.BOARD)
 gpio.setup(pin, gpio.OUT)
 
 # Buzzer

@@ -4,12 +4,12 @@ import sys
 
 print('Leds Tester')
 
-tehran = 24
-providence = 25
-reject = 8
-error = 7
+tehran = 18
+providence = 22
+reject = 24
+error = 26
 
-gpio.setmode(gpio.BCM)
+gpio.setmode(gpio.BOARD)
 gpio.setwarnings(False)
 gpio.setup(tehran, gpio.OUT)
 gpio.setup(providence, gpio.OUT)
