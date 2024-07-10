@@ -7,7 +7,7 @@ if len(sys.argv)>1:
     print("""
     [
         {
-            \"parcelId\": \"{"""+barcode+"""}\",
+            \"parcelId\": \""""+barcode+"""\",
             \"length\": 1,
             \"width\": 2,
             \"height\": 3,
@@ -22,13 +22,13 @@ if len(sys.argv)>1:
         
         [
             {
-                \"parcelId\": \"{"""+barcode+"""}\",
+                \"parcelId\": \""""+barcode+"""\",
                 \"cityCode\": \"IR-ZHDN\"
             }
         ]
             
         """)
     else:
-        print("     []")
+        print("        []")
 else:
     print("please mention the barcode", color=print.HIGHLIGHTED_RED)
