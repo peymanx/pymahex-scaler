@@ -5,7 +5,7 @@ if len(sys.argv)>1:
     print("""
     [
         {
-            \"parcelId\": \"{barcode}\",
+            \"parcelId\": \"{"""+barcode+"""}\",
             \"length\": 1,
             \"width\": 2,
             \"height\": 3,
@@ -18,12 +18,13 @@ if len(sys.argv)>1:
         Response: 
         [
             {
-                \"parcelId\": \"{barcode}\",
+                \"parcelId\": \"{"""+barcode+"""}\",
                 \"cityCode\": \"IR-ZHDN\"
             }
         ]
             
         """)
+    else:
+        print("[]")
 else:
-    print("[]")
-
+    print("please mention the barcode")
