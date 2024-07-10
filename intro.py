@@ -8,6 +8,27 @@ index = 1
 while True:
     match index:
         case 1:
+            leds.tehran.on()
+        case 2:
+
+            leds.providence.on()           
+        case 3:
+
+            leds.reject.on()           
+        case 4:
+
+            leds.error.on()           
+    index+=1
+    if index > 4: 
+        index=1
+        leds.turn_off_all()
+    time.sleep(0.4)
+
+
+
+while True:
+    match index:
+        case 1:
             leds.turn_off_all()
             leds.tehran.on()
         case 2:
