@@ -38,7 +38,7 @@ while True: # Run forever
         if GPIO.input(pin_red) == GPIO.LOW and red_pressed == False:
             print("@ Red Button is pressed")
             red_pressed = True
-            leds.error.invert()
+            leds.tehran.invert()
             wait_for_next()
 
         if GPIO.input(pin_red) == GPIO.HIGH:
