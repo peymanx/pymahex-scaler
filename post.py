@@ -1,7 +1,9 @@
 import sys
+from color import * 
 
 if len(sys.argv)>1:
     barcode = sys.argv[1]
+    print("Data to send:", print.HIGHLIGHTED)
     print("""
     [
         {
@@ -12,10 +14,12 @@ if len(sys.argv)>1:
             \"grossWeight\": 1.0,
             \"scannedOn\": \"2024-04-22T10:32:00\"
         }
-    ]  sent!""")
+    ] """)
+    
+    print("Response:", print.HIGHLIGHTED)
     if barcode == 'SHP3352120467-1':    
         print("""
-        Response: 
+        
         [
             {
                 \"parcelId\": \"{"""+barcode+"""}\",
@@ -27,4 +31,4 @@ if len(sys.argv)>1:
     else:
         print("[]")
 else:
-    print("please mention the barcode")
+    print("please mention the barcode", print.HIGHLIGHTED_RED)
