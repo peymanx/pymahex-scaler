@@ -10,7 +10,7 @@ serialPort = serial.Serial(port, 9600, timeout = 0.01)
 buffer = ''
 
 os.system('clear')
-print('Current weight is:')
+print('Current weight is:\r\n\r\n')
 
 
 def normalize(s):
