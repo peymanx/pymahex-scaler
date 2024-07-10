@@ -24,6 +24,23 @@ def wait_for_next():
 
 index = 1
 
+
+
+def apply():
+    match index:
+        case 1:
+            leds.turn_off_all()
+            leds.tehran.on()
+        case 2:
+            leds.turn_off_all()
+            leds.providence.on()           
+        case 3:
+            leds.turn_off_all()
+            leds.reject.on()           
+        case 4:
+            leds.turn_off_all()
+            leds.error.on()     
+
 while True: # Run forever
 
     # white button
@@ -32,6 +49,9 @@ while True: # Run forever
         if GPIO.input(pin_red) == GPIO.LOW and red_pressed == False:
             red_pressed = True
             index+=1
+            if index>4: index = 4
+
+            apply()
             wait_for_next()
 
         if GPIO.input(pin_red) == GPIO.HIGH:
@@ -42,29 +62,18 @@ while True: # Run forever
             print("@ Green Button is pressed")
             green_pressed = True
             index-=1
-            leds.reject.invert()
+            if index<0: index = 1
+            
+            apply()
             wait_for_next()
 
         if GPIO.input(pin_green) == GPIO.HIGH:
             green_pressed = False
 
         
-        if index<0: index = 1
-        if index>4: index = 4
+        
 
-        match index:
-            case 1:
-                leds.turn_off_all()
-                leds.tehran.on()
-            case 2:
-                leds.turn_off_all()
-                leds.providence.on()           
-            case 3:
-                leds.turn_off_all()
-                leds.reject.on()           
-            case 4:
-                leds.turn_off_all()
-                leds.error.on()      
+
 
     except KeyboardInterrupt:
         print('\r\nbye bye!')
