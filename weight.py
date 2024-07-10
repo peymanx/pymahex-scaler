@@ -28,7 +28,8 @@ while True:
                 fweight = float(weight)
                 if last != fweight:
                     os.system('clear')
-                    print(f"{f.renderText(fweight):2.2f}kg")
+                    fig= f"{fweight:2.2f}kg"
+                    print(f.renderText(fig))
                     last = fweight
             except:
                 ...
