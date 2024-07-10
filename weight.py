@@ -4,7 +4,8 @@ port = "/dev/ttyS0"
 bytes_sent = 24
 serialPort = serial.Serial(port, 9600, timeout = 0.1)
 buffer = ''
-
+print('Connecting to Scaler...')
+print(str(float('00.0'))+ "             ",end='\r')
 def normalize(s):
     return s.replace(" ", "").replace("\r", "").replace("\n", "")
 
