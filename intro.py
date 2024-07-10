@@ -23,7 +23,7 @@ while True:
     index+=1
     buzzer.play(0.003)
     if index > 4: index=1
-    time.sleep(0.4)
+    time.sleep(0.6)
 
 
 
