@@ -30,7 +30,7 @@ index = 1
 
 
 def apply():
-    buzzer.play(0.001)
+    
     match index:
         case 1:
             leds.turn_off_all()
