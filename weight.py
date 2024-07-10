@@ -1,12 +1,12 @@
 import serial, os
 from pyfiglet import Figlet
 
-f = Figlet(font='slant')
+f = Figlet(font='smblock')
 
 
 port = "/dev/ttyS0"
 bytes_sent = 24
-serialPort = serial.Serial(port, 9600, timeout = 0.1)
+serialPort = serial.Serial(port, 9600, timeout = 0.01)
 buffer = ''
 
 print(str(float('00.0'))+ "             ",end='\r')
