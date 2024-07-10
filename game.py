@@ -27,6 +27,7 @@ index = 1
 
 
 def apply():
+    buzzer.play(0.001)
     match index:
         case 1:
             leds.turn_off_all()
@@ -39,7 +40,11 @@ def apply():
             leds.reject.on()           
         case 4:
             leds.turn_off_all()
-            leds.error.on()     
+            leds.error.on()
+                 
+
+
+apply()
 
 while True: # Run forever
 
@@ -63,7 +68,7 @@ while True: # Run forever
             green_pressed = True
             index-=1
             if index<0: index = 1
-            
+
             apply()
             wait_for_next()
 
