@@ -17,6 +17,7 @@ white_pressed = False
 green_pressed = False
 red_pressed = False
 
+leds.turn_off_all()
 
 def wait_for_next():
     time.sleep(0.4)
@@ -48,9 +49,9 @@ while True: # Run forever
         if GPIO.input(pin_green) == GPIO.LOW and green_pressed == False:
             print("@ Green Button is pressed")
             green_pressed = True
-            leds.turn_on_all()
-
-
+            leds.tehran.invert()
+            leds.providence.invert()
+            leds.reject.invert()
             wait_for_next()
 
         if GPIO.input(pin_green) == GPIO.HIGH:
