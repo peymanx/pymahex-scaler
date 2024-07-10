@@ -4,56 +4,72 @@ import sys
 
 print('Leds Tester')
 
-tehran = 18
-providence = 22
-reject = 24
-error = 26
+
+class LED:
+    def __init__(self, pin, name):
+        self.pin = pin
+        self.status = False
+        self.name = name
+        gpio.setup(pin, gpio.OUT)
+    def on(self):
+        gpio.output(self.pin, gpio.HIGH)
+        print(f"Turning {self.name}({self.pin}): on" )
+        tehran.status = True
+    def off(self):
+        gpio.output(self.pin, gpio.LOW)
+        print(f"Turning {self.name}({self.pin}): off" )
+        tehran.status = False
+    def invert(self):
+        if self.status == True:
+            self.off()
+        else:
+            self.on()
+
+
+
+tehran = LED(18,"Tehran")
+providence = LED(18,"Shahrestan")
+reject = LED(18,"Mazad")
+error = LED(18,"System Error")
+
+
 
 gpio.setmode(gpio.BOARD)
 gpio.setwarnings(False)
-gpio.setup(tehran, gpio.OUT)
-gpio.setup(providence, gpio.OUT)
-gpio.setup(reject, gpio.OUT)
-gpio.setup(error, gpio.OUT)
 
-def turn_on(pin):
-     gpio.output(pin, gpio.HIGH)
-     print("Turning on " + str(pin))
-
-def turn_off(pin):
-     gpio.output(pin, gpio.LOW)
-     print("Turning off " + str(pin))
 
 if len(sys.argv)>1:
     match sys.argv[1]:
         case 'tehran':
               if sys.argv[2] == 'on':
-                turn_on(tehran)
+                tehran.on()
               else:
-                turn_off(tehran)
+                tehran.off()
         case 'other' | 'others' | 'ostan' | 'shahrestan' | 'providence':
              if sys.argv[2] == 'on':
-                turn_on(providence)
+                providence.on()
              else:
-                turn_off(providence)
+                providence.off()
         case 'reject' | 'rj' | 'mazad':
              if sys.argv[2] == 'on':
-                turn_on(reject)
+                reject.on();
              else:
-                turn_off(reject)
+                reject.off()
         case 'error' | 'err': 
              if sys.argv[2] == 'on':
-                turn_on(error)
+                error.on()
              else:
-                turn_off(error)
+                error.off()
         case 'all': 
              if sys.argv[2] == 'on':
-                turn_on(tehran)
-                turn_on(providence)
-                turn_on(reject)
-                turn_on(error)
+                tehran.on()
+                reject.on()
+                providence.on()
+                error.on()
              else:
-                 turn_off(tehran)
-                 turn_off(providence)
-                 turn_off(reject)
-                 turn_off(error)
+                tehran.off()
+                reject.off()
+                providence.off()
+                error.off()
+
+
