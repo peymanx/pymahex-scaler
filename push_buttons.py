@@ -51,7 +51,7 @@ while True: # Run forever
 
         # green button
         if GPIO.input(pin_green) == GPIO.LOW and green_pressed == False:
-            print("@ Green Button is pressed", color=print.HIGHLIGHTED_GREEN_LIGHT))
+            print("@ Green Button is pressed", color=print.HIGHLIGHTED_GREEN_LIGHT)
             green_pressed = True
             leds.tehran.invert()
             leds.providence.invert()
