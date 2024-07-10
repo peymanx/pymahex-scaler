@@ -17,12 +17,12 @@ while True:
             leds.reject.on()           
         case 4:
 
-            leds.error.on()           
+            leds.error.on()         
+        case 5:  
+            leds.turn_off_all()
     index+=1
+    if index > 5: index=1
     time.sleep(0.4)
-    if index > 4: 
-        index=1
-        leds.turn_off_all()
 
 
 
