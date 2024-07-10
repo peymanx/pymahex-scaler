@@ -27,7 +27,7 @@ while True:
                 #print(str(float(weight))+ "kg             \033[?25l",end='\r')
                 fweight = float(weight)
                 if last != fweight:
-                    os.system('clear')
+                    print('\033[4A\033[2K', end='')
                     fig= f"{fweight:2.2f}kg"
                     print(f.renderText(fig))
                     last = fweight
