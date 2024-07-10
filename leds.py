@@ -4,6 +4,8 @@ import sys
 
 print('Leds Tester')
 
+gpio.setmode(gpio.BOARD)
+gpio.setwarnings(False)
 
 class LED:
     def __init__(self, pin, name):
@@ -34,8 +36,7 @@ error = LED(18,"System Error")
 
 
 
-gpio.setmode(gpio.BOARD)
-gpio.setwarnings(False)
+
 
 
 if len(sys.argv)>1:
