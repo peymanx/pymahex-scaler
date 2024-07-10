@@ -30,9 +30,9 @@ class LED:
 
 
 tehran = LED(18,"Tehran")
-providence = LED(18,"Shahrestan")
-reject = LED(18,"Mazad")
-error = LED(18,"System Error")
+providence = LED(22,"Shahrestan")
+reject = LED(24,"Mazad")
+error = LED(26,"System Error")
 
 
 
