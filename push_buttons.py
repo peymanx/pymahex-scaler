@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO 
-import time, color
+import time
+
 import sys
 import buzzer, leds
 pin_white = 40
@@ -22,6 +23,7 @@ leds.turn_off_all()
 def wait_for_next():
     time.sleep(0.4)
 
+from color import *
 
 
 while True: # Run forever
