@@ -28,7 +28,7 @@ while True:
                 fweight = float(weight)
                 if last != fweight:
                     os.system('clear')
-                    print(f.renderText( str(fweight)))
+                    print(f"{f.renderText( str(fweight)):2.2f}kg'))
                     last = fweight
             except:
                 ...
