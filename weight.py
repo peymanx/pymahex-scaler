@@ -25,5 +25,6 @@ while True:
             except:
                 ...
     except KeyboardInterrupt:
+        print('\033[?25h', end="")
         print('\r\nbye bye!')
         break
