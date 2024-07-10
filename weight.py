@@ -9,7 +9,10 @@ bytes_sent = 24
 serialPort = serial.Serial(port, 9600, timeout = 0.01)
 buffer = ''
 
-print(str(float('00.0'))+ "             ",end='\r')
+os.system('clear')
+print('Current weight is:')
+
+
 def normalize(s):
     return s.replace(" ", "").replace("\r", "").replace("\n", "")
 last = -1.0
