@@ -19,7 +19,7 @@ while True:
             weight = normalize(buffer[wn+2:kg])
             buffer=''
             try:
-                print(float(weight))
+                print(str(float(weight))+ "             ",end='\r')
             except:
                 ...
     except KeyboardInterrupt:
