@@ -28,6 +28,7 @@ while True:
                 if last != weight:
                     os.system('clear')
                     print(f.renderText( str(float(weight))))
+                    last = weight
             except:
                 ...
     except KeyboardInterrupt:
