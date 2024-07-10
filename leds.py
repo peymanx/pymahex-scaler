@@ -16,11 +16,11 @@ class LED:
     def on(self):
         gpio.output(self.pin, gpio.HIGH)
         print(f"Turning LED named {self.name}({self.pin}): on" )
-        tehran.status = True
+        self.status = True
     def off(self):
         gpio.output(self.pin, gpio.LOW)
         print(f"Turning LED named {self.name}({self.pin}): off" )
-        tehran.status = False
+        self.status = False
     def invert(self):
         if self.status == True:
             self.off()
