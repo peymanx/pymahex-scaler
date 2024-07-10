@@ -1,6 +1,5 @@
 import serial
-import cursor
-cursor.hide()
+
 
 port = "/dev/ttyS0"
 bytes_sent = 24
@@ -22,7 +21,7 @@ while True:
             weight = normalize(buffer[wn+2:kg])
             buffer=''
             try:
-                print(str(float(weight))+ "             ",end='\r')
+                print(str(float(weight))+ "             \033[?25l",end='\r')
             except:
                 ...
     except KeyboardInterrupt:
