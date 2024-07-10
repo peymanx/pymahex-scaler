@@ -29,6 +29,6 @@ if len(sys.argv)>1:
             
         """)
     else:
-        print("[]")
+        print("     []")
 else:
     print("please mention the barcode", color=print.HIGHLIGHTED_RED)
