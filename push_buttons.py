@@ -1,5 +1,5 @@
 import RPi.GPIO as GPIO 
-import time
+import time, color
 import sys
 import buzzer, leds
 pin_white = 40
@@ -39,7 +39,7 @@ while True: # Run forever
 
         # red button
         if GPIO.input(pin_red) == GPIO.LOW and red_pressed == False:
-            print("@ Red Button is pressed")
+            print("@ Red Button is pressed", color=print.HIGHLIGHTED_RED)
             red_pressed = True
             leds.error.invert()
             wait_for_next()
