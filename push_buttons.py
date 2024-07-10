@@ -31,7 +31,7 @@ while True: # Run forever
     # white button
     try:
         if GPIO.input(pin_white) == GPIO.LOW and white_pressed == False:
-            print("@ White button is pressed")
+            print("@ White button is pressed", color=print.HIGHLIGHTED_WHITE_LIGHT)
             white_pressed = True
             leds.tehran.invert()
             wait_for_next()
@@ -51,7 +51,7 @@ while True: # Run forever
 
         # green button
         if GPIO.input(pin_green) == GPIO.LOW and green_pressed == False:
-            print("@ Green Button is pressed")
+            print("@ Green Button is pressed", color=print.HIGHLIGHTED_GREEN_LIGHT))
             green_pressed = True
             leds.tehran.invert()
             leds.providence.invert()
