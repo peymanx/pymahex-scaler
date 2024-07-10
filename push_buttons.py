@@ -31,7 +31,7 @@ while True: # Run forever
     # white button
     try:
         if GPIO.input(pin_white) == GPIO.LOW and white_pressed == False:
-            print("@ White button is pressed", color=print.HIGHLIGHTED_WHITE)
+            print("@ White button is pressed", color=print.HIGHLIGHTED)
             white_pressed = True
             leds.tehran.invert()
             wait_for_next()
