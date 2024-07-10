@@ -1,4 +1,7 @@
-import serial
+import serial, os
+from pyfiglet import Figlet
+
+f = Figlet(font='slant')
 
 
 port = "/dev/ttyS0"
@@ -21,7 +24,9 @@ while True:
             weight = normalize(buffer[wn+2:kg])
             buffer=''
             try:
-                print(str(float(weight))+ "kg             \033[?25l",end='\r')
+                #print(str(float(weight))+ "kg             \033[?25l",end='\r')
+                os.system('clear')
+                print(f.renderText( str(float(weight))))
             except:
                 ...
     except KeyboardInterrupt:
