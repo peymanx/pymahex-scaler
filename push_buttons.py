@@ -22,6 +22,8 @@ leds.turn_off_all()
 def wait_for_next():
     time.sleep(0.4)
 
+
+
 while True: # Run forever
 
     # white button

@@ -4,6 +4,7 @@ from pyfiglet import Figlet
 f = Figlet(font='smblock')
 
 
+
 port = "/dev/ttyS0"
 bytes_sent = 24
 serialPort = serial.Serial(port, 9600, timeout = 0.01)
