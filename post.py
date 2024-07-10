@@ -5,12 +5,12 @@ if len(sys.argv)>1:
     print(f"""
     [
         {
-            "parcelId": "{barcode}",
-            "length": 1,
-            "width": 2,
-            "height": 3,
-            "grossWeight": 1.0,
-            "scannedOn": "2024-04-22T10:32:00"
+            \"parcelId\": \"{barcode}\",
+            \"length\": 1,
+            \"width\": 2,
+            \"height\": 3,
+            \"grossWeight\": 1.0,
+            \"scannedOn\": \"2024-04-22T10:32:00\"
         }
     ]  sent!""")
     if barcode == 'SHP3352120467-1':    
@@ -18,8 +18,8 @@ if len(sys.argv)>1:
         Response: 
         [
             {
-                "parcelId": "{barcode}",
-                "cityCode": "IR-ZHDN"
+                \"parcelId\": \"{barcode}\",
+                \"cityCode\": \"IR-ZHDN\"
             }
         ]
             
