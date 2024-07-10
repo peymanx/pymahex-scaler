@@ -2,7 +2,7 @@ import sys
 
 if len(sys.argv)>1:
     barcode = sys.argv[1]
-    print(f"""
+    print("""
     [
         {
             \"parcelId\": \"{barcode}\",
