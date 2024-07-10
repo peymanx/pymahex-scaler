@@ -20,7 +20,7 @@ while True:
             leds.turn_off_all()
         case 6:  
             leds.turn_on_all()
-        case _:  
+        case 7:  
             index=0
     index+=1       
     time.sleep(0.4)
