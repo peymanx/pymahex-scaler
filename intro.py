@@ -21,7 +21,7 @@ while True:
             leds.error.on()           
     index+=1
     if index > 4: index=1
-    time.sleep(1/index)
+    time.sleep(0.4)
 
 
 
