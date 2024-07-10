@@ -1,4 +1,6 @@
 import serial
+import cursor
+cursor.hide()
 
 port = "/dev/ttyS0"
 bytes_sent = 24
