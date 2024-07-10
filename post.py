@@ -3,7 +3,7 @@ from color import *
 
 if len(sys.argv)>1:
     barcode = sys.argv[1]
-    print("Data to send:", print.HIGHLIGHTED)
+    print("Data to send:", color=print.HIGHLIGHTED)
     print("""
     [
         {
@@ -16,7 +16,7 @@ if len(sys.argv)>1:
         }
     ] """)
     
-    print("Response:", print.HIGHLIGHTED)
+    print("Response:", color=print.HIGHLIGHTED)
     if barcode == 'SHP3352120467-1':    
         print("""
         
@@ -31,4 +31,4 @@ if len(sys.argv)>1:
     else:
         print("[]")
 else:
-    print("please mention the barcode", print.HIGHLIGHTED_RED)
+    print("please mention the barcode", color=print.HIGHLIGHTED_RED)
