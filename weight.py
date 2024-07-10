@@ -12,7 +12,7 @@ buffer = ''
 print(str(float('00.0'))+ "             ",end='\r')
 def normalize(s):
     return s.replace(" ", "").replace("\r", "").replace("\n", "")
-
+last = "unknown"
 while True:
     try:
         data = serialPort.read(bytes_sent)
@@ -25,8 +25,9 @@ while True:
             buffer=''
             try:
                 #print(str(float(weight))+ "kg             \033[?25l",end='\r')
-                os.system('clear')
-                print(f.renderText( str(float(weight))))
+                if last != weight:
+                    os.system('clear')
+                    print(f.renderText( str(float(weight))))
             except:
                 ...
     except KeyboardInterrupt:
