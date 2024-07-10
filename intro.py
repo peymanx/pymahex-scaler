@@ -20,7 +20,7 @@ while True:
             leds.turn_off_all()
             leds.error.on()           
     index+=1
-    index = index%4+1
+    if index > 4: index=1
     time.sleep(0.5)
 
 
