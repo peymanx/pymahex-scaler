@@ -17,7 +17,9 @@ def silent():
     gpio.output(pin, gpio.LOW)
 
 def click():
-    play(0.01)
+    play(0.003)
+    time.sleep(0.1)
+    play(0.003)
 
 
 def error():
