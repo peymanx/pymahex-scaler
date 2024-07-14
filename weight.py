@@ -15,7 +15,8 @@ def listen():
     port = "/dev/ttyS0"
     bytes_sent = 24
     serialPort = serial.Serial(port, 9600, timeout = 0.01)
-    buffer = ''      
+    buffer = ''     
+    f = Figlet(font='smblock')  
     while True:
         try:
             data = serialPort.read(bytes_sent)
@@ -26,16 +27,15 @@ def listen():
             if wn != -1 and  kg != -1 and dot != -1:
                 weight = normalize(buffer[wn+2:kg])
                 buffer=''
-                print('jgj')
                 try:
                     #print(str(float(weight))+ "kg             \033[?25l",end='\r')
                     fweight = float(weight)
                     if last != fweight:
                         if display_on_screen:
-                            print('\033[5A\033[2K', end='')
-                            f = Figlet(font='smblock')                        
+                            print('\033[5A\033[2K', end='')                                                   
                             fig= f"{fweight:2.2f}kg"
                             print(f.renderText(fig))
+                            print(last)
                         last = fweight
                 except:
                     ...
