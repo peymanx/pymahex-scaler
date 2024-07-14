@@ -23,7 +23,7 @@ while True:
            barcode = input('Scan the parcel\'s barcode: ')
            print('The barcode is: ' + barcode)
            w = weight.get()
-           print('The weight is: ' + w )
+           print(f'The weight is: {w}kg')
 
            
            if len(barcode)>3:
