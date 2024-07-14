@@ -11,13 +11,13 @@ def normalize(s):
 def get():
     return last
 
-def listen():          
+def listen():    
+    port = "/dev/ttyS0"
+    bytes_sent = 24
+    serialPort = serial.Serial(port, 9600, timeout = 0.01)
+    buffer = ''      
     while True:
         try:
-            port = "/dev/ttyS0"
-            bytes_sent = 24
-            serialPort = serial.Serial(port, 9600, timeout = 0.01)
-            buffer = ''
             data = serialPort.read(bytes_sent)
             buffer+=data.decode()
             wn = buffer.rfind('wn') 
