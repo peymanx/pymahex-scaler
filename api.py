@@ -33,6 +33,8 @@ def send_to_ecourier(barcode, weight):
     }
     ])
     
+    
+    print('Data to send:', color=print.YELLOW)
     json_object = json.loads(payload)
     json_formatted_str = json.dumps(json_object, indent=2)
     print(json_formatted_str)
@@ -48,6 +50,7 @@ def send_to_ecourier(barcode, weight):
 
         print(response.text)
         if response.status_code == 200 and response.text.__contains__(barcode):
+            print('E-Courier Answer:', color=print.YELLOW)            
             json_object = json.loads(response.text)
             json_formatted_str = json.dumps(json_object, indent=2)
             print(json_formatted_str)

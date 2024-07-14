@@ -24,10 +24,9 @@ while True:
            print('The barcode is: ' + barcode)
            w = weight.get()
            print(f'The weight is: {w}kg')
-
            
            if len(barcode)>3:
-                result = Api.send_to_ecourier(barcode, 1)
+                result = Api.send_to_ecourier(barcode, w)
                 leds.turn_off_all()
                 match result:
                     case Api.ApiResult.TEHRAN:
