@@ -1,20 +1,18 @@
-import time
+#!/home/luca/pi-rfid/env python
+
 import RPi.GPIO as GPIO
+from time import sleep
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(37, GPIO.OUT)
-
-p = GPIO.PWM(37, 50)  # channel=12 frequency=50Hz
-p.start(0)
 try:
-    while 1:
-        for dc in range(0, 101, 5):
-            p.ChangeDutyCycle(dc)
-            time.sleep(0.1)
-        for dc in range(100, -1, -5):
-            p.ChangeDutyCycle(dc)
-            time.sleep(0.1)
-except KeyboardInterrupt:
-    pass
-p.stop()
-GPIO.cleanup()
+	while True:
+		print("Beep ON")
+		GPIO.output(37, GPIO.LOW)
+		sleep(0.3)
+		GPIO.output(37, GPIO.HIGH)
+		print("Beep OFF")
+		sleep(5)
+		
+finally:
+	GPIO.cleanup()
