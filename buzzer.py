@@ -20,7 +20,7 @@ c5 = 523.25
 
 speed = 0.1
 
-gpio.output(12, True) 
+gpio.output(pin, True) 
 p.start(10) # 10% duty cycle sounds 'ok'
 
 p.ChangeFrequency(c4)
