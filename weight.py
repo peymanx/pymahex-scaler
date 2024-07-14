@@ -2,7 +2,7 @@ import serial, os
 from pyfiglet import Figlet
 
 
-global display_on_screen
+global display_on_screen, last
 display_on_screen = False
 last = -1.0
 
@@ -14,7 +14,7 @@ def get():
     return last
 
 def listen():    
-    global display_on_screen
+    global display_on_screen, last
     port = "/dev/ttyS0"
     bytes_sent = 24
     serialPort = serial.Serial(port, 9600, timeout = 0.01)
@@ -35,7 +35,7 @@ def listen():
                 fweight = float(weight)
                 if last != fweight:
                     if display_on_screen:
-                        #print('\033[5A\033[2K', end='')                                                   
+                        print('\033[5A\033[2K', end='')                                                   
                         fig= f"{fweight:2.2f}kg"
                         print(f.renderText(fig))
                         
