@@ -46,16 +46,16 @@ def send_to_ecourier(barcode, weight):
     if response.status_code == 200 and response.text.__contains__(barcode):
         if is_tehran(response.text):
             print('tehran')
-            return City.TEHRAN
+            return ApiResult.TEHRAN
         else:
             print('providence')
-            return City.PROVIDENCE
+            return ApiResult.PROVIDENCE
     elif response.text == '[]':
         print('reject')
-        return City.REJECT
+        return ApiResult.REJECT
     else:
         print('Connection Error')
-        return City.ERROR
+        return ApiResult.ERROR
         
     
 
@@ -63,4 +63,4 @@ def send_to_ecourier(barcode, weight):
 if __name__ == '__main__':
     if len(sys.argv)>1:
         barcode = sys.argv[1]
-        get_parcel(barcode, 5)
+        send_to_ecourier(barcode, 5)
