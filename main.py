@@ -4,13 +4,19 @@ import api as Api
 import leds, weight
 
 
-def background_service():
+def push_buttons_service():
     push_buttons.listen()
 
+def weight_service():
+    weight.listen()
 
-service = threading.Thread(name='background', target=background_service)
-service.daemon = True
-service.start()
+pushbtn_service = threading.Thread(name='push_buttons_service', target=push_buttons_service)
+pushbtn_service.daemon = True
+pushbtn_service.start()
+
+w_service = threading.Thread(name='push_buttons_service', target=weight_service)
+w_service.daemon = True
+w_service.start()
 
 while True:
        try:

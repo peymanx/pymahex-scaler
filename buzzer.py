@@ -18,8 +18,8 @@ def silent():
 
 def click():
     play(0.003)
-    time.sleep(0.003)
-    play(0.003)
+    time.sleep(0.01)
+    play(0.002)
 
 
 def error():
