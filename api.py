@@ -6,7 +6,7 @@ from pathlib import Path
 
 from enum import Enum
 
-class City(Enum):
+class ApiResult(Enum):
     TEHRAN = 1
     PROVIDENCE = 2
     REJECT = 3
@@ -23,7 +23,7 @@ def is_tehran(text):
         if text.__contains__(city): return True
     return False
 
-def get_parcel(barcode, weight):
+def send_to_ecourier(barcode, weight):
     now = datetime.datetime.utcnow().isoformat()
     payload = json.dumps([
     {
@@ -54,9 +54,13 @@ def get_parcel(barcode, weight):
         print('reject')
         return City.REJECT
     else:
+        print('Connection Error')
         return City.ERROR
         
     
 
-barcode = sys.argv[1]
-get_parcel(barcode, 5)
+
+if __name__ == '__main__':
+    if len(sys.argv)>1:
+        barcode = sys.argv[1]
+        get_parcel(barcode, 5)
