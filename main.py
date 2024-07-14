@@ -1,7 +1,8 @@
 import threading
 import push_buttons, buzzer
 import api as Api
-import leds
+import leds, weight
+
 
 def background_service():
     push_buttons.listen()
@@ -15,7 +16,9 @@ while True:
        try:
            barcode = input('Scan the parcel\'s barcode: ')
            print('The barcode is: ' + barcode)
-           buzzer.click();
+           w = weight.get()
+           print('The weight is: ' + w )
+
            
            if len(barcode)>3:
                 result = Api.send_to_ecourier(barcode, 1)
@@ -33,7 +36,8 @@ while True:
                     case Api.ApiResult.ERROR:
                         leds.error.on()
                         buzzer.error()
-                        
+           buzzer.click()
+            
            if barcode in ["-1", "exit","q"]:
                 break
 

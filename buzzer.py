@@ -18,7 +18,7 @@ def silent():
 
 def click():
     play(0.003)
-    time.sleep(0.1)
+    time.sleep(0.003)
     play(0.003)
 
 
