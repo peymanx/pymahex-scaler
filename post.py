@@ -15,7 +15,7 @@ def get_parcel(barcode, weight):
         "width": 0,
         "height": 0,
         "grossWeight": weight,
-        "scannedOn": now
+        "scannedOn": "fghjgjh"
     }
     ])
     headers = {
