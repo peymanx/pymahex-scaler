@@ -49,7 +49,7 @@ def listen():
 
             # green button
             if GPIO.input(pin_green) == GPIO.LOW and green_pressed == False:
-                print("@ Green Button is pressed", color=print.HIGHLIGHTED_GREEN)
+                print("@ Green Button is pressed", color=print.HIGHLIGHTED_GREEN_LIGHT)
                 green_pressed = True
                 leds.tehran.invert()
                 buzzer.play(0.001)
