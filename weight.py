@@ -45,6 +45,8 @@ def listen():
                         
                 except:
                     ...
+                    print('err')
+                    
         except KeyboardInterrupt:
             if display_on_screen:
                 print('\033[?25h', end="")
