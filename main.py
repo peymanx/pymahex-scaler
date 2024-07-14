@@ -28,7 +28,7 @@ while True:
                         leds.reject.on()
                     case Api.ApiResult.ERROR:
                         leds.error.on()
-                
+                buzzer.click();
            if barcode in ["-1", "exit","q"]:
                 break
 

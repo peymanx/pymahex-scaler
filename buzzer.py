@@ -7,7 +7,7 @@ gpio.setmode(gpio.BOARD)
 gpio.setup(pin, gpio.OUT)
 
 
-def play(delay=0.5):
+def play(delay=0.1):
     gpio.output(pin, gpio.HIGH)
     time.sleep(delay)
     silent()
@@ -15,6 +15,8 @@ def play(delay=0.5):
 def silent():
     gpio.output(pin, gpio.LOW)
 
+def click():
+    play(0.01)
 
 if __name__ == '__main__':
     delay = 0.5
