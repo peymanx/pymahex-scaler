@@ -12,6 +12,14 @@ push_button_service.daemon = True
 push_button_service.start()
 
 while True:
-    barcode = input('Scan the parcel barcode: ')
-    print('The barcode is: ' + barcode)
-    pass
+       try:
+           barcode = input('Scan the parcel barcode: ')
+           print('The barcode is: ' + barcode)
+
+           if barcode in ["-1", "exit","q"]:
+                break
+       except KeyboardInterrupt:
+           break
+            
+
+        
