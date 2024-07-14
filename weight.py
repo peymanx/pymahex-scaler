@@ -32,7 +32,7 @@ def listen():
                     fweight = float(weight)
                     if last != fweight:
                         if display_on_screen:
-                            print('\033[5A\033[2K', end='')                                                   
+                            #print('\033[5A\033[2K', end='')                                                   
                             fig= f"{fweight:2.2f}kg"
                             print(f.renderText(fig))
                             print(last)
