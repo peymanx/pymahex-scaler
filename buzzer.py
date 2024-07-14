@@ -7,7 +7,7 @@ gpio.setmode(gpio.BOARD)
 gpio.setup(pin, gpio.OUT)
 
 
-p = gpio.PWM(12, 100)
+p = gpio.PWM(pin, 100)
 
 c4 = 261
 d4 = 294
