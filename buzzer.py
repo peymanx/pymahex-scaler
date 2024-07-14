@@ -3,9 +3,9 @@ import time, sys
 
 pin = 37
 
+gpio.setwarnings(False)
 gpio.setmode(gpio.BOARD)
 gpio.setup(pin, gpio.OUT)
-gpio.setwarnings(False)
 
 
 def play(delay=0.1):
