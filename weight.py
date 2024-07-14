@@ -34,12 +34,15 @@ def listen():
                     #print(str(float(weight))+ "kg             \033[?25l",end='\r')
                     fweight = float(weight)
                     if last != fweight:
+                        print(1)
                         if display_on_screen:
                             #print('\033[5A\033[2K', end='')                                                   
                             fig= f"{fweight:2.2f}kg"
                             print(f.renderText(fig))
-                            print(last)
+                            print(2)
                         last = fweight
+                        print(3)
+                        
                 except:
                     ...
         except KeyboardInterrupt:
