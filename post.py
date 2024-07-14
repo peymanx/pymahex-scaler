@@ -10,6 +10,7 @@ class City(Enum):
     TEHRAN = 1
     PROVIDENCE = 2
     REJECT = 3
+    ERROR = -1
 
 url = "http://172.24.24.59:8011/v1/parcels/scan"
 
@@ -49,9 +50,11 @@ def get_parcel(barcode, weight):
         else:
             print('providence')
             return City.PROVIDENCE
-    else:
+    elif response.text == '[]':
         print('reject')
         return City.REJECT
+    else:
+        return City.ERROR
         
     
 
