@@ -26,6 +26,7 @@ def listen():
             if wn != -1 and  kg != -1 and dot != -1:
                 weight = normalize(buffer[wn+2:kg])
                 buffer=''
+                print('jgj')
                 try:
                     #print(str(float(weight))+ "kg             \033[?25l",end='\r')
                     fweight = float(weight)
