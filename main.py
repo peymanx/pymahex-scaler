@@ -15,20 +15,24 @@ while True:
        try:
            barcode = input('Scan the parcel\'s barcode: ')
            print('The barcode is: ' + barcode)
+           buzzer.click();
            
            if len(barcode)>3:
                 result = Api.send_to_ecourier(barcode, 1)
                 leds.turn_off_all()
                 match result:
                     case Api.ApiResult.TEHRAN:
-                        leds.tehran.on()                
+                        leds.tehran.on()       
+                                 
                     case Api.ApiResult.PROVIDENCE:
-                        leds.providence.on()                
+                        leds.providence.on()    
+                                    
                     case Api.ApiResult.REJECT:
                         leds.reject.on()
+                        
                     case Api.ApiResult.ERROR:
                         leds.error.on()
-                buzzer.click();
+                        
            if barcode in ["-1", "exit","q"]:
                 break
 

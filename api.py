@@ -40,20 +40,24 @@ def send_to_ecourier(barcode, weight):
     'Content-Type': 'application/json'
     }
 
-    response = requests.request("POST", url, headers=headers, data=payload)
+    try:
+        response = requests.request("POST", url, headers=headers, data=payload)
 
-    print(response.text)
-    if response.status_code == 200 and response.text.__contains__(barcode):
-        if is_tehran(response.text):
-            print('Tehran', color=print.HIGHLIGHTED_GREEN)
-            return ApiResult.TEHRAN
+        print(response.text)
+        if response.status_code == 200 and response.text.__contains__(barcode):
+            if is_tehran(response.text):
+                print('Tehran', color=print.HIGHLIGHTED_GREEN)
+                return ApiResult.TEHRAN
+            else:
+                print('Providence', color=print.HIGHLIGHTED_GREEN)
+                return ApiResult.PROVIDENCE
+        elif response.text == '[]':
+            print('Reject', color=print.HIGHLIGHTED_RED)
+            return ApiResult.REJECT
         else:
-            print('Providence', color=print.HIGHLIGHTED_GREEN)
-            return ApiResult.PROVIDENCE
-    elif response.text == '[]':
-        print('Reject', color=print.HIGHLIGHTED_RED)
-        return ApiResult.REJECT
-    else:
+            print('Connection Error', color=print.HIGHLIGHTED_RED)
+            return ApiResult.ERROR
+    except:
         print('Connection Error', color=print.HIGHLIGHTED_RED)
         return ApiResult.ERROR
         

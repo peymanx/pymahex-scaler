@@ -18,6 +18,10 @@ def silent():
 def click():
     play(0.01)
 
+
+def erro():
+    play(0.9)
+
 if __name__ == '__main__':
     delay = 0.5
     global Buzz 
