@@ -30,22 +30,20 @@ def listen():
             if wn != -1 and  kg != -1 and dot != -1:
                 weight = normalize(buffer[wn+2:kg])
                 buffer=''
-                try:
-                    #print(str(float(weight))+ "kg             \033[?25l",end='\r')
-                    fweight = float(weight)
-                    if last != fweight:
-                        print(1)
-                        if display_on_screen:
-                            #print('\033[5A\033[2K', end='')                                                   
-                            fig= f"{fweight:2.2f}kg"
-                            print(f.renderText(fig))
-                            print(2)
-                        last = fweight
-                        print(3)
+
+                #print(str(float(weight))+ "kg             \033[?25l",end='\r')
+                fweight = float(weight)
+                if last != fweight:
+                    if display_on_screen:
+                        #print('\033[5A\033[2K', end='')                                                   
+                        fig= f"{fweight:2.2f}kg"
+                        print(f.renderText(fig))
                         
-                except:
-                    ...
-                    print('err')
+                    last = fweight
+
+                        
+
+
                     
         except KeyboardInterrupt:
             if display_on_screen:
