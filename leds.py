@@ -1,8 +1,7 @@
 import RPi.GPIO as gpio
-import time
 import sys
 
-print('Leds Tester')
+
 
 gpio.setmode(gpio.BOARD)
 gpio.setwarnings(False)
@@ -47,6 +46,7 @@ def turn_off_all():
         led.off()
 
 if __name__ == '__main__':
+    print('Leds Tester')
     if len(sys.argv)>1:
         match sys.argv[1]:
             case 'tehran':

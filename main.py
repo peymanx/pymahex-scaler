@@ -23,5 +23,5 @@ while True:
        except KeyboardInterrupt:
            break
             
-
-        
+buzzer.silent()        
+print('bye bye')
