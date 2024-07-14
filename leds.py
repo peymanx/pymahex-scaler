@@ -29,23 +29,22 @@ class LED:
 
 
 
-tehran = LED(18,"Tehran")
-providence = LED(22,"Shahrestan")
+tehran = LED(pin=18,name="Tehran")
+providence = LED(22,name="Shahrestan")
 reject = LED(24,"Mazad")
 error = LED(26,"System Error")
 
 
+leds = [ tehran, providence, reject, error]
+
 def turn_on_all():
-    tehran.on()
-    reject.on()
-    providence.on()
-    error.on()
+    for led in leds:
+        led.on()
+
 
 def turn_off_all():
-    tehran.off()
-    reject.off()
-    providence.off()
-    error.off()
+    for led in leds:
+        led.off()
 
 if __name__ == '__main__':
     if len(sys.argv)>1:
