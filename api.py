@@ -61,7 +61,7 @@ def send_to_ecourier(barcode, weight):
                 return ApiResult.PROVIDENCE
         elif response.text == '[]':
             print(response.text)                
-            print('Reject', color=print.HIGHLIGHTED_RED)
+            print('Parcel Rejected', color=print.HIGHLIGHTED_RED)
             return ApiResult.REJECT
         else:
             print('Connection Error', color=print.HIGHLIGHTED_RED)          
