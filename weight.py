@@ -1,6 +1,8 @@
 import serial, os
 from pyfiglet import Figlet
 
+
+global display_on_screen
 display_on_screen = False
 last = -1.0
 
@@ -12,6 +14,7 @@ def get():
     return last
 
 def listen():    
+    global display_on_screen
     port = "/dev/ttyS0"
     bytes_sent = 24
     serialPort = serial.Serial(port, 9600, timeout = 0.01)
