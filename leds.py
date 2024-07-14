@@ -14,11 +14,11 @@ class LED:
         gpio.setup(pin, gpio.OUT)
     def on(self):
         gpio.output(self.pin, gpio.HIGH)
-        print(f"Turning LED named {self.name}({self.pin}): on" )
+        #print(f"Turning LED named {self.name}({self.pin}): on" )
         self.status = True
     def off(self):
         gpio.output(self.pin, gpio.LOW)
-        print(f"Turning LED named {self.name}({self.pin}): off" )
+        #print(f"Turning LED named {self.name}({self.pin}): off" )
         self.status = False
     def invert(self):
         if self.status == True:
@@ -29,7 +29,7 @@ class LED:
 
 
 tehran = LED(pin=18,name="Tehran")
-providence = LED(22,name="Shahrestan")
+providence = LED(22,name="Shahrestan Non-tehran")
 reject = LED(24,"Mazad")
 error = LED(26,"System Error")
 
