@@ -1,34 +1,25 @@
 import sys
 from color import * 
+import requests
+import json
 
-if len(sys.argv)>1:
-    barcode = sys.argv[1]
-    print("Data to send:", color=print.HIGHLIGHTED)
-    print("""
-    [
-        {
-            \"parcelId\": \""""+barcode+"""\",
-            \"length\": 1,
-            \"width\": 2,
-            \"height\": 3,
-            \"grossWeight\": 1.0,
-            \"scannedOn\": \"2024-04-22T10:32:00\"
-        }
-    ] """)
-    
-    print("Response:", color=print.HIGHLIGHTED)
-    if barcode == 'SHP3352120467-1':    
-        print("""
-        
-        [
-            {
-                \"parcelId\": \""""+barcode+"""\",
-                \"cityCode\": \"IR-ZHDN\"
-            }
-        ]
-            
-        """)
-    else:
-        print("        []")
-else:
-    print("please mention the barcode", color=print.HIGHLIGHTED_RED)
+url = "http://172.24.24.59:8011/v1/parcels/scan"
+
+payload = json.dumps([
+  {
+    "parcelId": "SHP3352120467-1",
+    "length": 1,
+    "width": 2,
+    "height": 3,
+    "grossWeight": 1,
+    "scannedOn": "2024-04-22T10:32:00"
+  }
+])
+headers = {
+  'authorization': 'Basic amFsSkh6VlN2QnlNQkNXRnNNcVJVZjdQU3lDQ2ZhZExBNU51bmlIc3dFNGVlcVpyOg==',
+  'Content-Type': 'application/json'
+}
+
+response = requests.request("POST", url, headers=headers, data=payload)
+
+print(response.text)
