@@ -20,7 +20,7 @@ def click():
     play(0.01)
 
 
-def erro():
+def error():
     play(0.9)
 
 if __name__ == '__main__':

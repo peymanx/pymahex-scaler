@@ -32,6 +32,7 @@ while True:
                         
                     case Api.ApiResult.ERROR:
                         leds.error.on()
+                        buzzer.error()
                         
            if barcode in ["-1", "exit","q"]:
                 break
