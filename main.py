@@ -40,5 +40,6 @@ while True:
        except KeyboardInterrupt:
            break
             
-buzzer.silent()        
+buzzer.silent() 
+leds.turn_on_all()       
 print('bye bye')
