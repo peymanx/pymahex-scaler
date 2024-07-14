@@ -2,14 +2,13 @@ import threading
 import push_buttons
 
 
-def service():
-    push_buttons.wait_for_a_key()
+def background_service():
+    push_buttons.listen()
 
 
-
-push_button_service = threading.Thread(name='background', target=service)
-push_button_service.daemon = True
-push_button_service.start()
+service = threading.Thread(name='background', target=background_service)
+service.daemon = True
+service.start()
 
 while True:
        try:

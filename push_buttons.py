@@ -23,9 +23,8 @@ leds.turn_off_all()
 def wait_for_next():
     time.sleep(0.4)
 
-def wait_for_a_key():
-    while True: # Run forever
-        # white button
+def listen():
+    while True: 
         try:
             if GPIO.input(pin_white) == GPIO.LOW and white_pressed == False:
                 print("@ White button is pressed", color=print.HIGHLIGHTED)
@@ -42,7 +41,7 @@ def wait_for_a_key():
                 print("@ Red Button is pressed", color=print.HIGHLIGHTED_RED)
                 red_pressed = True
                 leds.error.invert()
-                buzzer.play(0.001)
+                buzzer.play(2)
                 wait_for_next()
 
             if GPIO.input(pin_red) == GPIO.HIGH:
