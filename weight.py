@@ -31,18 +31,18 @@ def listen():
                 weight = normalize(buffer[wn+2:kg])
                 buffer=''
 
-                #print(str(float(weight))+ "kg             \033[?25l",end='\r')
-                fweight = float(weight)
-                if last != fweight:
-                    if display_on_screen:
-                        print('\033[5A\033[2K', end='')                                                   
-                        fig= f"{fweight:2.2f}kg"
-                        print(f.renderText(fig))
-                        
-                    last = fweight
-
-                        
-
+                try:
+                    #print(str(float(weight))+ "kg             \033[?25l",end='\r')
+                    fweight = float(weight)
+                    if last != fweight:
+                        if display_on_screen:
+                            print('\033[5A\033[2K', end='')
+                            f = Figlet(font='smblock')                        
+                            fig= f"{fweight:2.2f}kg"
+                            print(f.renderText(fig))
+                        last = fweight
+                except:
+                    ...
 
                     
         except KeyboardInterrupt:
