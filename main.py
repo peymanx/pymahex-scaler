@@ -1,5 +1,5 @@
 import threading
-import push_buttons
+import push_buttons, buzzer
 
 
 def background_service():
@@ -12,11 +12,14 @@ service.start()
 
 while True:
        try:
-           barcode = input('Scan the parcel barcode: ')
+           barcode = input('Scan the parcel\'s barcode: ')
            print('The barcode is: ' + barcode)
 
            if barcode in ["-1", "exit","q"]:
                 break
+           if barcode == 'buzz':
+                buzzer.play()
+
        except KeyboardInterrupt:
            break
             
