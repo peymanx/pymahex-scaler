@@ -1,10 +1,26 @@
 from color import * 
 import requests
-import json
+import json, sys
 import datetime
+from pathlib import Path
 
+from enum import Enum
+
+class City(Enum):
+    TEHRAN = 1
+    PROVIDENCE = 2
+    REJECT = 3
 
 url = "http://172.24.24.59:8011/v1/parcels/scan"
+
+
+p = Path(__file__).with_name('database.txt')
+tehran_db = p.read_text().splitlines()
+
+def is_tehran(text):
+    for city in tehran_db:
+        if text.__contains__(city): return True
+    return False
 
 def get_parcel(barcode, weight):
     now = datetime.datetime.utcnow().isoformat()
@@ -15,7 +31,7 @@ def get_parcel(barcode, weight):
         "width": 0,
         "height": 0,
         "grossWeight": weight,
-        "scannedOn": "fghjgjh"
+        "scannedOn": now
     }
     ])
     headers = {
@@ -26,6 +42,18 @@ def get_parcel(barcode, weight):
     response = requests.request("POST", url, headers=headers, data=payload)
 
     print(response.text)
+    if response.status_code == 200 and response.text.__contains__(barcode):
+        if is_tehran(response.text):
+            print('tehran')
+            return City.TEHRAN
+        else:
+            print('providence')
+            return City.PROVIDENCE
+    else:
+        print('reject')
+        return City.REJECT
+        
+    
 
-
-get_parcel('SHP3352120467-1', 5)
+barcode = sys.argv[1]
+get_parcel(barcode, 5)
