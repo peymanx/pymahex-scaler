@@ -6,9 +6,7 @@ pin = 37
 gpio.setmode(gpio.BOARD)
 gpio.setup(pin, gpio.OUT)
 
-global Buzz 
-Buzz = gpio.PWM(pin, 440) 
-Buzz.start(50) 
+
 
 
 # Buzzer
@@ -25,7 +23,9 @@ def silent():
 
 if __name__ == '__main__':
     delay = 0.5
-
+    global Buzz 
+    Buzz = gpio.PWM(pin, 440) 
+    Buzz.start(50) 
     if len(sys.argv)>1:
             delay = float(sys.argv[1])
     play(delay)
