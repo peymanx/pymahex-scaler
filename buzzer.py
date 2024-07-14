@@ -6,6 +6,11 @@ pin = 37
 gpio.setmode(gpio.BOARD)
 gpio.setup(pin, gpio.OUT)
 
+global Buzz 
+Buzz = gpio.PWM(pin, 440) 
+Buzz.start(50) 
+
+
 # Buzzer
 def play(delay=0.5):
     gpio.output(pin, gpio.HIGH)
