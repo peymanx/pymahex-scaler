@@ -48,8 +48,8 @@ def send_to_ecourier(barcode, weight):
     try:
         response = requests.request("POST", url, headers=headers, data=payload)
 
+        print('E-Courier Answer:', color=print.HIGHLIGHTED_YELLOW)            
         if response.status_code == 200 and response.text.__contains__(barcode):
-            print('E-Courier Answer:', color=print.HIGHLIGHTED_YELLOW)            
             json_object = json.loads(response.text)
             json_formatted_str = json.dumps(json_object, indent=2)
             print(json_formatted_str)
@@ -60,7 +60,7 @@ def send_to_ecourier(barcode, weight):
                 print('Providence', color=print.HIGHLIGHTED_GREEN)
                 return ApiResult.PROVIDENCE
         elif response.text == '[]':
-            print(response.text, color=print.HIGHLIGHTED_YELLOW)                
+            print(response.text)                
             print('Reject', color=print.HIGHLIGHTED_RED)
             return ApiResult.REJECT
         else:
