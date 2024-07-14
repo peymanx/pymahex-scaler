@@ -3,7 +3,7 @@ import requests
 import json, sys
 import datetime
 from pathlib import Path
-
+from color import *
 from enum import Enum
 
 class ApiResult(Enum):
@@ -45,16 +45,16 @@ def send_to_ecourier(barcode, weight):
     print(response.text)
     if response.status_code == 200 and response.text.__contains__(barcode):
         if is_tehran(response.text):
-            print('tehran')
+            print('Tehran', color=print.HIGHLIGHTED_GREEN)
             return ApiResult.TEHRAN
         else:
-            print('providence')
+            print('Providence', color=print.HIGHLIGHTED_GREEN)
             return ApiResult.PROVIDENCE
     elif response.text == '[]':
-        print('reject')
+        print('Reject', color=print.HIGHLIGHTED_YELLOW)
         return ApiResult.REJECT
     else:
-        print('Connection Error')
+        print('Connection Error', color=print.HIGHLIGHTED_RED)
         return ApiResult.ERROR
         
     
