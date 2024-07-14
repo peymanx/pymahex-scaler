@@ -1,11 +1,17 @@
-import buzzer, sys
+import threading
+import push_buttons
 
 
-delay = 0.5
-
-if len(sys.argv)>1:
-        delay = float(sys.argv[1])
+def service():
+    push_buttons.wait_for_a_key()
 
 
 
-buzzer.play(delay)
+push_button_service = threading.Thread(name='background', target=service)
+push_button_service.daemon = True
+push_button_service.start()
+
+while True:
+    barcode = input('Scan the parcel barcode: ')
+    print('The barcode is: ' + barcode)
+    pass
