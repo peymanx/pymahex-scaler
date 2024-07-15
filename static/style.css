@@ -1,5 +1,10 @@
 
 
+@font-face {
+  font-family: tehran;
+  src: url(tehran.ttf);
+}
+
 body{
   background-color: rgb(66, 66, 65);
   font-size: large;
