@@ -15,7 +15,7 @@ body{
 .title{
   color: gold;
   font-family: tehran;
-  font-size: xx-large;
+  font-size: 70px;
 
 }
 
@@ -23,8 +23,8 @@ body{
 /* normals */
 .button-54 {
   font-family: tehran;
-  font-size: 22px;
-  letter-spacing: 2px;
+  font-size: 40px;
+
   text-decoration: none;
   text-transform: uppercase;
   color: #000;
