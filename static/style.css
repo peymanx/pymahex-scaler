@@ -7,7 +7,7 @@
 
 body{
   background-color: rgb(66, 66, 65);
-
+  padding: 10px;
   color: white;
   direction: rtl;
 }
