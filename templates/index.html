@@ -67,7 +67,7 @@
 
 </head>
 <body>
-    <span class="title"> RSA Scaler </span>
+    <span class="title"> RSA Scaler </span> <br/>
     <span class="title"> ترازوی هوشمند </span>
     <pre>version 1.0.1</pre>
     <hr>
@@ -77,9 +77,9 @@
 
     <a href='#' onclick="intro()"  class='button intro'>شروع به کار</a> 
     <a href='#' onclick="buzz()"  class='button buzz'>صدای بازر</a> <hr/>
-<h1>آخرین دیتای دریافتی</h1>
-  <span id="barcode">00000000000</span> <br>
- <span id="weight">0kg</span>
+<h1>آخرین دیتای دریافتی:</h1>
+  <h1 id="barcode">0000000000000000</h1> 
+ <h1 id="weight">0kg</h1>
     
      <br/>
 
@@ -107,7 +107,7 @@ async function get_data(){
 
           if(result && result.barcode != last_barcode && result.barcode.length>0 ) {
             barcode.innerHTML = result.barcode;
-            weight.innerHTML = result.weight;
+            weight.innerHTML = result.weight +'kg';
             last_barcode = result.barcode;
         }
       })
