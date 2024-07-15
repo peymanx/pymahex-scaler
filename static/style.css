@@ -28,7 +28,7 @@
   touch-action: manipulation;
   white-space: nowrap;
   will-change: box-shadow,transform;
-  font-size: 18px;
+  font-size: 25px;
 }
 
 .button-30:focus {
