@@ -7,8 +7,9 @@
 
 body{
   background-color: rgb(66, 66, 65);
-  font-size: large;
+  font-size: xx-large;
   color: white;
+  direction: rtl;
 }
 
 .title{
