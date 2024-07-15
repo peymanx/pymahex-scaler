@@ -1,7 +1,7 @@
 
 from flask import Flask
 from flask import send_file, send_from_directory
-
+from pathlib import Path 
 app = Flask('RSA Scaler')
 
 @app.route('/')
@@ -18,8 +18,11 @@ def downloadFile():
 
 @app.route('/clear')
 def clear():
-    path = "/home/peyman/pymahex-scaler/log.csv"
-    return send_file(path, as_attachment=True)
+    log_file = Path(__file__).with_name('log.csv')
+    record = 'barcode,datetime,weight,result'
+    with open(log_file, "w") as logger:
+        logger.write(record)
+    return 'Cleared'
 
 
 @app.route('/buzzer')
