@@ -107,7 +107,7 @@ body{
   position: relative;
   padding: 12px 27px;
   border-radius: 12px;
-  font-size: 1.1rem;
+
   color: white;
   background: hsl(345deg 100% 47%);
   will-change: transform;
@@ -120,7 +120,7 @@ body{
 
 @media (min-width: 768px) {
   .button-82-front {
-    font-size: 1.25rem;
+    font-size: 40px;
     padding: 12px 42px;
   }
 }
