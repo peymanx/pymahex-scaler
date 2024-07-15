@@ -31,7 +31,7 @@ def buzzer():
     return 'buuuuuuuuuuuuz'
 
 @app.route('/intro')
-def buzzer():
+def introduction():
     import intro
     intro.run(10)
     return 'intro done'
