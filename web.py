@@ -38,7 +38,7 @@ def get_data():
         
     last_weight = Path(__file__).with_name('weight.txt')
     with open(last_weight, "r") as file:
-        last_weight = file.readline()
+        weight = file.readline()
 
     return jsonify(weight=weight, barcode = barcode)
 
