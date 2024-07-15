@@ -23,7 +23,18 @@ def log(barcode, apiResult, date, weight):
     record = f'{barcode},{date},{weight}kg,{apiResult}\r\n'
     log_file = Path(__file__).with_name('log.csv')
     with open(log_file, "a") as logger:
-        logger.write(record)
+        logger.write(barcode)
+        
+    bar = Path(__file__).with_name('barcode.txt')
+    with open(log_file, "w") as file:
+        file.write(record)
+        
+    w = Path(__file__).with_name('weight.txt')
+    with open(log_file, "w") as file:
+        file.write(weight)
+        
+               
+        
 
 def send_to_ecourier(barcode, weight):
     now = datetime.datetime.utcnow().isoformat()
