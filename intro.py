@@ -1,9 +1,9 @@
 import leds, time, buzzer
 
 leds.turn_off_all()
-index = 1
 
 def run(n):
+    index = 1
     while n>0:
         match index:
             case 1:
