@@ -92,6 +92,9 @@ async function intro(){
   await fetch('/intro')
 }
 
+let last_barcode = 'not set'
+
+
 async function get_data(){
   let url = '/getdata';
 
@@ -101,9 +104,11 @@ async function get_data(){
           let barcode = document.getElementById('barcode');
           let weight = document.getElementById('weight');
 
-
-          barcode.innerHTML = result.barcode;
-          weight.innerHTML = result.weight;
+          if(result && result.barcode != last_barcode && result.barcode.length>0 ) {
+            barcode.innerHTML = result.barcode;
+            weight.innerHTML = result.weight;
+            last_barcode = result.barcode;
+        }
       })
       .catch(err => console.log(err));
   }
