@@ -74,12 +74,16 @@
     <a href='/download' class='button'>Download</a> 
     <a href='/clear' target="_blank" class='button clear'>Clear</a> <hr/>
 
-    <a href='/intro' target="_blank"class='button intro'>Intro</a> 
+    <a href='#' onclick="intro()"  class='button intro'>Intro</a> 
     <a href='#' onclick="buzz()"  class='button buzz'>Buzzer</a> <br/>
 
 <script>
 
 async function buzz(){
+  await fetch('/buzzer')
+}
+
+async function intro(){
   await fetch('/buzzer')
 }
 

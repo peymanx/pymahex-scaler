@@ -28,7 +28,7 @@ def clear():
 @app.route('/buzzer')
 def buzzer():
     import buzzer
-    buzzer.play(0.6)
+    buzzer.play(0.3)
     return 'buuuuuuuuuuuuz'
 
 @app.route('/intro')
