@@ -1,13 +1,12 @@
 
-from flask import Flask
-from flask import send_file, send_from_directory
+from flask import Flask,send_file, send_from_directory, render_template
 from pathlib import Path 
 app = Flask('RSA Scaler')
 
 @app.route('/')
 def index():
-    return 'Hello world'
-
+    path = "/home/peyman/pymahex-scaler/www/"
+    return render_template(path + 'index.html')
 
 
 @app.route('/download')
@@ -30,6 +29,12 @@ def buzzer():
     import buzzer
     buzzer.click()
     return 'buuuuuuuuuuuuz'
+
+@app.route('/intro')
+def buzzer():
+    import intro
+    intro.run(10)
+    return 'intro done'
 
 
 
