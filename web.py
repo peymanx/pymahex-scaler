@@ -11,14 +11,14 @@ def index():
 
 
 @app.route('/download')
-def downloadFile ():
-    path = "~/peyman/pymahex-scaler/"
+def downloadFile():
+    path = "/home/peyman/pymahex-scaler"
     return send_from_directory(path, "log.csv", as_attachment=True)
 
 
 @app.route('/clear')
 def clear():
-    path = "~/peyman/pymahex-scaler/log.csv"
+    path = "/home/peyman/pymahex-scaler/log.csv"
     return send_file(path, as_attachment=True)
 
 
