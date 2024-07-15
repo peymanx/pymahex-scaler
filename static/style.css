@@ -7,7 +7,7 @@
 
 body{
   background-color: rgb(66, 66, 65);
-  font-size: xx-large;
+
   color: white;
   direction: rtl;
 }
@@ -15,6 +15,7 @@ body{
 .title{
   color: gold;
   font-family: tehran;
+  font-size: xx-large;
 
 }
 
