@@ -2,7 +2,7 @@ import leds, time, buzzer
 
 leds.turn_off_all()
 
-def run(n):
+def run(n=12):
     index = 1
     while n>0:
         match index:
@@ -26,6 +26,6 @@ def run(n):
 
 
 if __name__ == '__main__':
-    run(10)
+    run()
     
 

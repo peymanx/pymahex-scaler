@@ -5,8 +5,7 @@ app = Flask('RSA Scaler')
 
 @app.route('/')
 def index():
-    path = "/home/peyman/pymahex-scaler/www/"
-    return render_template(path + 'index.html')
+    return render_template('index.html')
 
 
 @app.route('/download')
@@ -33,7 +32,7 @@ def buzzer():
 @app.route('/intro')
 def introduction():
     import intro
-    intro.run(10)
+    intro.run(12)
     return 'intro done'
 
 
