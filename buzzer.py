@@ -1,5 +1,6 @@
 import RPi.GPIO as gpio
-import time, sys
+import sys
+from time import sleep
 
 pin = 37
 
@@ -10,7 +11,7 @@ gpio.setup(pin, gpio.OUT)
 
 def play(delay=0.1):
     gpio.output(pin, gpio.HIGH)
-    time.sleep(delay)
+    sleep(delay)
     silent()
 
 def silent():
@@ -18,8 +19,25 @@ def silent():
 
 def click():
     play(0.003)
-    time.sleep(0.01)
+    sleep(0.01)
     play(0.002)
+
+def intro():
+    play(0.1)
+    sleep(0.5)
+
+    play(0.01)
+    sleep(0.01)
+    play(0.01)
+    sleep(0.5)
+
+    play(0.01)
+    sleep(0.01)
+    play(0.01)
+    sleep(0.5)
+
+    sleep(1)
+    play(0.5)
 
 
 def error():
@@ -29,7 +47,7 @@ if __name__ == '__main__':
     delay = 0.5
     global Buzz 
     Buzz = gpio.PWM(pin, 440) 
-    Buzz.start(50) 
+    start(50) 
     if len(sys.argv)>1:
             delay = float(sys.argv[1])
     play(delay)
