@@ -2,7 +2,7 @@
 from flask import Flask,send_file, send_from_directory, render_template
 from pathlib import Path 
 
-app = Flask('RSA Scaler', static_url_path='/www',template_folder='/www')
+app = Flask('RSA Scaler', static_url_path='www',template_folder='www')
 
 
 @app.route('/')
