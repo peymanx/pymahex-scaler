@@ -4,10 +4,12 @@ from time import sleep
 
 pin = 37
 
+global Buzz 
 gpio.setwarnings(False)
 gpio.setmode(gpio.BOARD)
 gpio.setup(pin, gpio.OUT)
-
+Buzz = gpio.PWM(pin, 440) 
+Buzz.start(50) 
 
 def play(delay=0.1):
     gpio.output(pin, gpio.HIGH)
@@ -43,9 +45,7 @@ def error():
 
 if __name__ == '__main__':
     delay = 0.5
-    global Buzz 
-    Buzz = gpio.PWM(pin, 440) 
-    start(50) 
+
     if len(sys.argv)>1:
             delay = float(sys.argv[1])
     play(delay)
