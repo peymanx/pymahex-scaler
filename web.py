@@ -17,6 +17,12 @@ def index():
     return render_template('index.html')
 
 
+@app.route('/barcode')
+def barcode():
+    return render_template('barcode.html')
+
+
+
 @app.route('/download')
 def downloadFile():
     path = "/home/peyman/pymahex-scaler"
