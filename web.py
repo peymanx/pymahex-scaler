@@ -5,7 +5,12 @@ import os
 
 
 app_name = 'RSA Scaler'
-app = Flask(app_name)
+
+
+app = Flask(app_name,
+            static_url_path='', 
+            static_folder='static',
+            template_folder='templates')
 
 @app.route('/')
 def index():
