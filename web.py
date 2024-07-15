@@ -30,8 +30,16 @@ def clear():
 
 @app.route('/getdata')
 def get_data():
-    weight = os.environ.get('global_weight', -1)
-    barcode = os.environ.get('global_barcode', 'not set')
+    barcode = 'not set'
+    weight = -2
+    last_barcode = Path(__file__).with_name('barcode.txt')
+    with open(last_barcode, "r") as file:
+        barcode = file.readline()
+        
+    last_weight = Path(__file__).with_name('weight.txt')
+    with open(last_weight, "r") as file:
+        last_weight = file.readline()
+
     return jsonify(weight=weight, barcode = barcode)
 
 @app.route('/buzzer')
