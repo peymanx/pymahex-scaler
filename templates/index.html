@@ -75,7 +75,11 @@
     <a href='/clear' target="_blank" class='button clear'>Clear</a> <hr/>
 
     <a href='#' onclick="intro()"  class='button intro'>Intro</a> 
-    <a href='#' onclick="buzz()"  class='button buzz'>Buzzer</a> <br/>
+    <a href='#' onclick="buzz()"  class='button buzz'>Buzzer</a> <hr/>
+
+    <a href='#' onclick="get_data()"  class='button intro'>Get Data</a> 
+    
+     <br/>
 
 <script>
 
@@ -85,6 +89,19 @@ async function buzz(){
 
 async function intro(){
   await fetch('/intro')
+}
+
+async function get_data(){
+  let url = '/getdata';
+
+fetch(url)
+.then(res => {
+  let data = res.json()
+  alert(barcode)
+})
+.then(out =>
+  console.log('Checkout this JSON! ', out))
+.catch(err => console.log(err));
 }
 
 </script>

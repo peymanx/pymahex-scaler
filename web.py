@@ -1,9 +1,11 @@
 
-from flask import Flask,send_file, send_from_directory, render_template
+from flask import Flask,send_file, send_from_directory, render_template, jsonify
 from pathlib import Path 
+import os
 
-app = Flask('RSA Scaler')
 
+app_name = 'RSA Scaler'
+app = Flask(app_name)
 
 @app.route('/')
 def index():
@@ -24,6 +26,13 @@ def clear():
         logger.write(record)
     return 'Cleared'
 
+
+
+@app.route('/getdata')
+def get_data():
+    weight = os.environ.get('global_weight', -1)
+    barcode = os.environ.get('global_barcode', 'not set')
+    return jsonify(weight=weight, barcode = barcode)
 
 @app.route('/buzzer')
 def buzzer():
