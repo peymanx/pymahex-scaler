@@ -69,12 +69,21 @@
 <body>
     <span> RSA Scaler </span>
     <pre>version 1.0.1</pre>
-    <a href='/download' class='button'>Download</a> <br/>
+    <hr>
+    
+    <a href='/download' class='button'>Download</a> 
     <a href='/clear' target="_blank" class='button clear'>Clear</a> <hr/>
+
     <a href='/intro' target="_blank"class='button intro'>Intro</a> 
-    <a href='/buzzer' target="_blank" class='button buzz'>Buzzer</a> <br/>
+    <a href='#' onclick="buzz()"  class='button buzz'>Buzzer</a> <br/>
 
+<script>
 
+async function buz(){
+  await fetch('/buzzer')
+}
+
+</script>
 
 </body>
 </html>
