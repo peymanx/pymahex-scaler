@@ -1,13 +1,18 @@
 
 
 body{
-  background-color: gold;
+  background-color: rgb(66, 66, 65);
   font-size: large;
+}
+
+.title{
+  color: gold;
+
 }
 
 /* keyboard style */
 .button-30 {
-  margin: 20px;
+ 
   align-items: center;
   appearance: none;
   background-color: #FCFCFD;
