@@ -77,7 +77,8 @@
     <a href='#' onclick="intro()"  class='button intro'>Intro</a> 
     <a href='#' onclick="buzz()"  class='button buzz'>Buzzer</a> <hr/>
 
-    <a href='#' onclick="get_data()"  class='button intro'>Get Data</a> 
+   <h1>Last Barcode: <span id="barcode">00000000000</span></h1>
+   <h1>Last Weight: <span id="weight">0kg</span></h1>
     
      <br/>
 
@@ -94,15 +95,21 @@ async function intro(){
 async function get_data(){
   let url = '/getdata';
 
-fetch(url)
-.then(res =>  res.json())
-.then(result =>{
-  alert('barcode: ' + result.barcode)
-}
-  
-)
-.catch(err => console.log(err));
-}
+      fetch(url)
+      .then(res =>  res.json())
+      .then(result =>{
+          let barcode = document.getElementById('barcode');
+          let weight = document.getElementById('weight');
+
+
+          barcode.innerHTML = result.barcode;
+          weight.innerHTML = result.weight;
+      })
+      .catch(err => console.log(err));
+  }
+
+
+  setInterval(get_data, 500);
 
 </script>
 
