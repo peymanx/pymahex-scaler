@@ -50,7 +50,7 @@ def get_data():
 @app.route('/buzzer')
 def buzzer():
     import buzzer
-    buzzer.play(0.3)
+    buzzer.play(0.03)
     return 'buuuuuuuuuuuuz'
 
 @app.route('/intro')
