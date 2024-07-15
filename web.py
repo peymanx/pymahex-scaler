@@ -1,6 +1,6 @@
 
 from flask import Flask
-from flask import send_file
+from flask import send_file, send_from_directory
 
 app = Flask('RSA Scaler')
 
@@ -12,8 +12,8 @@ def index():
 
 @app.route('/download')
 def downloadFile ():
-    path = "~/peyman/pymahex-scaler/log.csv"
-    return send_file(path, as_attachment=True)
+    path = "~/peyman/pymahex-scaler/"
+    return send_from_directory(path, "log.csv", as_attachment=True)
 
 
 @app.route('/clear')
