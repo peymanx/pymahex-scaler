@@ -21,7 +21,8 @@ def is_tehran(text):
 
 def log(barcode, apiResult, date, weight):
     record = f'{barcode},{date},{weight}kg,{apiResult}\r\n'
-    with open("log.txt", "a") as logger:
+    log_file = Path(__file__).with_name('log.csv')
+    with open(log_file, "a") as logger:
         logger.write(record)
 
 def send_to_ecourier(barcode, weight):
