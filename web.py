@@ -19,7 +19,7 @@ def downloadFile():
 @app.route('/clear')
 def clear():
     log_file = Path(__file__).with_name('log.csv')
-    record = 'barcode,datetime,weight,result'
+    record = 'barcode,datetime,weight,result\r\n'
     with open(log_file, "w") as logger:
         logger.write(record)
     return 'Cleared'

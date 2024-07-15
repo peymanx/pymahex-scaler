@@ -5,6 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+
+        span {
+ 
+            font-size: 3em;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background-image: linear-gradient(gold, gold);
+            background-size: 100% 10px;
+            background-repeat: no-repeat;
+            background-position: 100% 0%;
+             transition: background-size .7s, background-position .5s ease-in-out;
+          }
+          
+          span:hover {
+            background-size: 100% 100%;
+            background-position: 0% 100%;
+            transition: background-position .7s, background-size .5s ease-in-out;
+          }
+
         .button {
             background-color: #04AA6D; /* Green */
             border: none;
@@ -50,7 +71,7 @@
 
 </head>
 <body>
-    <h1>RSA Scaler</h1>
+    <span> RSA Scaler </span>
     <pre>version 1.0.1</pre>
     <a href='/download' class='button'>Download</a> <br/>
     <a href='/clear' target="_blank" class='button clear'>Clear</a> <hr/>
