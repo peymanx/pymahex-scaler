@@ -29,15 +29,13 @@ def intro():
     play(0.01)
     sleep(0.01)
     play(0.01)
-    sleep(0.5)
-
+    sleep(0.01)
     play(0.01)
     sleep(0.01)
     play(0.01)
-    sleep(0.5)
+    sleep(0.01)
 
-    sleep(1)
-    play(0.5)
+
 
 
 def error():
