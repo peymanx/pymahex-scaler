@@ -96,8 +96,8 @@ async function get_data(){
 
 fetch(url)
 .then(res =>  res.json())
-.then(out =>{
-  alert(out)
+.then(result =>{
+  alert('barcode: ' + result.barcode)
 }
   
 )
