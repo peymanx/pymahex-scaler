@@ -8,10 +8,7 @@ app = Flask('RSA Scaler')
 def index():
     return 'Hello world'
 
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
-    print('booom')
-    
+
 
 @app.route('/download')
 def downloadFile ():
@@ -30,3 +27,10 @@ def buzzer():
     import buzzer
     buzzer.click()
     return 'buuuuuuuuuuuuz'
+
+
+
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0')
+    print('booom')
+    
