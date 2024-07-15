@@ -1,30 +1,17 @@
 
-import threading, time
+from pathlib import Path
 
-global money
-money = 0
+def log(barcode, weight):
 
-def background():
-    global money
-    while True:
-        number = int(input('Enter:'))
-        money += number
-        print('Money:', money)
+    bar = Path(__file__).with_name('barcode.txt')
+    with open(bar, "w") as file:
+        file.write(barcode)
+        
+    w = Path(__file__).with_name('weight.txt')
+    with open(w, "w") as file:
+        file.write(str(weight))
+        
 
-def foreground():
-    global money
-    while True:
-        money+=1
-        time.sleep(1)
-
-
-b = threading.Thread(name='background', target=background)
-b.daemon = True
-f = threading.Thread(name='foreground', target=foreground)
-f.daemon = True
-
-b.start()
-f.start()
 
 while True:
-    ...
+    log('dafsgsgsg',4)
