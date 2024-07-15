@@ -1,4 +1,10 @@
 
+
+body{
+  background-color: gold;
+  font-size: large;
+}
+
 /* keyboard style */
 .button-30 {
   align-items: center;
