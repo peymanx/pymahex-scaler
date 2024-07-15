@@ -17,3 +17,16 @@ if __name__ == '__main__':
 def downloadFile ():
     path = "~/peyman/pymahex-scaler/log.csv"
     return send_file(path, as_attachment=True)
+
+
+@app.route('/clear')
+def clear():
+    path = "~/peyman/pymahex-scaler/log.csv"
+    return send_file(path, as_attachment=True)
+
+
+@app.route('/buzzer')
+def buzzer():
+    import buzzer
+    buzzer.click()
+    return 'buuuuuuuuuuuuz'
