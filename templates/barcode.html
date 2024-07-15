@@ -18,8 +18,10 @@
     
 
   <h1 id="barcode">0000000000000000</h1> 
- <h1 id="weight">0kg</h1>
+ <h1 style="direction: ltr;" id="weight">0kg</h1>
     
+<hr/>
+
  <a href='/'  class='button-54'  style="  background-color: #ffffff  !important;" >بازگشت </a>
     <br/><br/><br/>
 
@@ -47,7 +49,7 @@ async function get_data(){
 
           if(result && result.barcode != last_barcode && result.barcode.length>0 ) {
             barcode.innerHTML = result.barcode;
-            weight.innerHTML = result.weight +'کیلوگرم';
+            weight.innerHTML = result.weight +'kg';
             last_barcode = result.barcode;
         }
       })
