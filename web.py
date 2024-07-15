@@ -62,7 +62,7 @@ def buzzer():
 @app.route('/intro')
 def introduction():
     import intro
-    intro.run(12)
+    intro.run(4)
     return 'intro done'
 
 

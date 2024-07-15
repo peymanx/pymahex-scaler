@@ -21,6 +21,11 @@ body{
 }
 
 
+p{
+  font-family: tehran;
+  letter-spacing: 5px;
+}
+
 /* normals */
 .button-54 {
   font-family: tehran;
