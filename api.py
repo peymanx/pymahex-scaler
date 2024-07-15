@@ -31,7 +31,7 @@ def log(barcode, apiResult, date, weight):
         
     w = Path(__file__).with_name('weight.txt')
     with open(log_file, "w") as file:
-        file.write(weight)
+        file.write(str(weight))
         
                
         
