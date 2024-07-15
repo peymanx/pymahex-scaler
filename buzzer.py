@@ -9,7 +9,7 @@ gpio.setwarnings(False)
 gpio.setmode(gpio.BOARD)
 gpio.setup(pin, gpio.OUT)
 Buzz = gpio.PWM(pin, 440) 
-Buzz.start(50) 
+
 
 def play(delay=0.1):
     gpio.output(pin, gpio.HIGH)
