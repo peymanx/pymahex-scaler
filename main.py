@@ -25,6 +25,7 @@ w_service.daemon = True
 w_service.start()
 
 banner()
+buzzer.intro()
 
 while True:
        try:
