@@ -95,12 +95,12 @@ async function get_data(){
   let url = '/getdata';
 
 fetch(url)
-.then(res => {
-  let data = res.json()
-  alert(barcode)
-})
-.then(out =>
-  console.log('Checkout this JSON! ', out))
+.then(res =>  res.json())
+.then(out =>{
+  alert(out)
+}
+  
+)
 .catch(err => console.log(err));
 }
 
