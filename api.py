@@ -20,7 +20,7 @@ def is_tehran(text):
     return False
 
 def log(barcode, apiResult, date, weight):
-    record = f'{barcode} inserted at {date} with {weight}kg: {apiResult}\r\n'
+    record = f'{barcode},{date},{weight}kg,{apiResult}\r\n'
     with open("log.txt", "a") as logger:
         logger.write(record)
 
