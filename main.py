@@ -3,6 +3,12 @@ import push_buttons, buzzer
 import api as Api
 import leds, weight
 
+def banner():
+    print("""
+ ___  ___   _     ___          _         
+| _ \/ __| /_\   / __| __ __ _| |___ _ _ 
+|   /\__ \/ _ \  \__ \/ _/ _` | / -_) '_|
+|_|_\|___/_/ \_\ |___/\__\__,_|_\___|_| """)
 
 def push_buttons_service():
     push_buttons.listen()
@@ -14,9 +20,11 @@ pushbtn_service = threading.Thread(name='push_buttons_service', target=push_butt
 pushbtn_service.daemon = True
 pushbtn_service.start()
 
-w_service = threading.Thread(name='push_buttons_service', target=weight_service)
+w_service = threading.Thread(name='weight_service', target=weight_service)
 w_service.daemon = True
 w_service.start()
+
+banner()
 
 while True:
        try:
@@ -50,5 +58,5 @@ while True:
            break
             
 buzzer.silent() 
-leds.turn_on_all()       
+leds.turn_off_all()       
 print('bye bye')
