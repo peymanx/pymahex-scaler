@@ -18,8 +18,8 @@
       <img src="line.png" style="width:300px"><br/><br/>
     
 
-  <h1 id="barcode">0000000000000000</h1> 
- <h1 style="direction: ltr;" id="weight">0kg</h1>
+  <h1 id="barcode" class="barcode">0000000000000000</h1> 
+ <h1 class="weight" id="weight">0kg</h1>
     
  <br/><img src="line.png" style="width:300px"><br/><br/>
 
@@ -28,13 +28,7 @@
 
 <script>
 
-async function buzz(){
-  await fetch('/buzzer')
-}
 
-async function intro(){
-  await fetch('/intro')
-}
 
 let last_barcode = 'not set'
 

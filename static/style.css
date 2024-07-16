@@ -5,6 +5,13 @@
   src: url(tehran.ttf);
 }
 
+
+@font-face {
+  font-family: orbit;
+  src: url(orbit.ttf);
+}
+
+
 body{
   background-color: rgb(66, 66, 65);
   padding-right: 6px;
@@ -18,6 +25,17 @@ body{
   font-family: tehran;
   font-size: 60px;
 
+}
+
+.barcode{
+  font-family: orbit;
+
+}
+
+.weight{
+  font-family: orbit;
+  font-size: xx-large;
+  direction: ltr;
 }
 
 
