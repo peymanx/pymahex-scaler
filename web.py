@@ -22,7 +22,7 @@ def barcode():
     return render_template('barcode.html')
 
 @app.route('/troubleshoots')
-def barcode():
+def troubleshoots():
     return render_template('troubleshoots.html')
 
 
@@ -70,7 +70,7 @@ def introduction():
     return 'intro done'
 
 @app.route('/led/<name>')
-def introduction(name):
+def leds(name):
     import leds
     match name:
         case 'tehran':
