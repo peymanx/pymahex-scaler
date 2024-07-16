@@ -61,11 +61,11 @@ def clear():
 def get_data():
     barcode = 'not set'
     weight = -2
-    last_barcode = Path(__file__).with_name('barcode.txt')
+    last_barcode = Path(__file__).with_name('database/barcode.txt')
     with open(last_barcode, "r") as file:
         barcode = file.readline()
         
-    last_weight = Path(__file__).with_name('weight.txt')
+    last_weight = Path(__file__).with_name('database/weight.txt')
     with open(last_weight, "r") as file:
         weight = file.readline()
 
