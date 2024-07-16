@@ -24,10 +24,6 @@ def listen():
     while True:
         try:
             tener+=1
-            if tener > 10:
-                if len(buffer)==0: 
-                    last=0.0
-                tener=0
             data = serialPort.read(bytes_sent)
             buffer+=data.decode()
             wn = buffer.rfind('wn') 
@@ -44,11 +40,16 @@ def listen():
                         last = fweight
                 except:
                     ...
-            
+                    
+            if tener > 10:
+                if len(buffer)==0: 
+                    last=0.0
+                tener=0
+                
             if display_on_screen:
                 print('\033[5A\033[2K', end='')
                 f = Figlet(font='smblock')                        
-                fig= f"{last:2.2f}kg"
+                fig= f"{last:2.2f}kg        "
                 print(f.renderText(fig))
 
                     
