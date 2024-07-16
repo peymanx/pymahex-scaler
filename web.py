@@ -3,6 +3,7 @@ from flask import Flask,send_file, send_from_directory, render_template, jsonify
 from pathlib import Path 
 import os
 
+from flask_fontawesome import FontAwesome
 
 app_name = 'RSA Scaler'
 
