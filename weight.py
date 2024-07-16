@@ -4,7 +4,7 @@ from pyfiglet import Figlet
 
 global display_on_screen, last
 display_on_screen = False
-last = -1.0
+last = 0.0
 
 
 def normalize(s):
@@ -20,8 +20,14 @@ def listen():
     serialPort = serial.Serial(port, 9600, timeout = 0.01)
     buffer = ''     
     f = Figlet(font='smblock')  
+    tener = 0
     while True:
         try:
+            tener+=1
+            if tener > 10:
+                if len(buffer)==0: 
+                    last=-100
+                tener=0
             data = serialPort.read(bytes_sent)
             buffer+=data.decode()
             wn = buffer.rfind('wn') 
