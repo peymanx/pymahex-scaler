@@ -43,13 +43,13 @@ def reboot():
 
 @app.route('/download')
 def downloadFile():
-    path = "/home/peyman/pymahex-scaler"
+    path = "/home/peyman/pymahex-scaler/database"
     return send_from_directory(path, "log.csv", as_attachment=True)
 
 
 @app.route('/clear')
 def clear():
-    log_file = Path(__file__).with_name('log.csv')
+    log_file = Path(__file__).parent.joinpath('database/log.csv')
     record = 'barcode,datetime,weight,result\r\n'
     with open(log_file, "w") as logger:
         logger.write(record)
@@ -61,11 +61,11 @@ def clear():
 def get_data():
     barcode = 'not set'
     weight = -2
-    last_barcode = Path(__file__).with_name('database/barcode.txt')
+    last_barcode = Path(__file__).parent.joinpath('database/barcode.txt')
     with open(last_barcode, "r") as file:
         barcode = file.readline()
         
-    last_weight = Path(__file__).with_name('database/weight.txt')
+    last_weight = Path(__file__).parent.joinpath('database/weight.txt')
     with open(last_weight, "r") as file:
         weight = file.readline()
 

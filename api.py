@@ -10,8 +10,7 @@ class ApiResult(Enum):
     ERROR = -1
 
 url = "http://172.24.24.59:8011/v1/parcels/scan"
-
-p = Path(__file__).with_name('database/tehran_db.txt')
+p = Path(__file__).parent.joinpath("database/tehran_db.txt")
 tehran_db = p.read_text().splitlines()
 
 def is_tehran(text):
@@ -21,15 +20,15 @@ def is_tehran(text):
 
 def log(barcode, apiResult, date, weight):
     record = f'{barcode},{date},{weight}kg,{apiResult}\r\n'
-    log_file = Path(__file__).with_name('database/log.csv')
+    log_file = Path(__file__).parent.joinpath('database/log.csv')
     with open(log_file, "a") as logger:
         logger.write(barcode)
         
-    bar = Path(__file__).with_name('database/barcode.txt')
+    bar = Path(__file__).parent.joinpath('database/barcode.txt')
     with open(bar, "w") as file:
         file.write(barcode)
         
-    w = Path(__file__).with_name('database/weight.txt')
+    w = Path(__file__).parent.joinpath('database/weight.txt')
     with open(w, "w") as file:
         file.write(str(weight))
         
