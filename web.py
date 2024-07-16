@@ -2,6 +2,7 @@
 from flask import Flask,send_file, send_from_directory, render_template, jsonify
 from pathlib import Path 
 import os
+from subprocess import call
 
 
 
@@ -25,6 +26,18 @@ def barcode():
 @app.route('/troubleshoots')
 def troubleshoots():
     return render_template('troubleshoots.html')
+
+@app.route('/shutdown')
+def shutdown():
+    call("sudo poweroff", shell=True)
+    return 'halt'
+
+@app.route('/reboot')
+def reboot():
+    call("sudo reboot", shell=True)
+    return 'halt'
+
+
 
 
 

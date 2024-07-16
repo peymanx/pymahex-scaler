@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ترازوی هوشمند </title>
+    <title>ترازوی هوشمند RSA</title>
    <link rel="stylesheet" href="/style.css">
    <link rel="stylesheet" href="/icons.css">
    
@@ -40,7 +40,7 @@
 
     <br/><img src="line.png" style="width:300px"><br/><br/>
 
-    <button class="button-82-pushable" role="button">
+    <button class="button-82-pushable" role="button" onclick="reboot()">
       <span class="button-82-shadow"></span>
       <span class="button-82-edge"></span>
       <span class="button-82-front text">
@@ -48,7 +48,7 @@
     </button>  &nbsp; &nbsp; &nbsp;
 
     
-    <button class="button-82-pushable" role="button">
+    <button class="button-82-pushable" role="button" onclick="shutdoown()">
       <span class="button-82-shadow"></span>
       <span class="button-82-edge"></span>
       <span class="button-82-front text">
@@ -71,6 +71,12 @@ async function buzz(){
 
 async function intro(){
   await fetch('/intro')
+}
+async function reboot(){
+  await fetch('/reboot')
+}
+async function shutdown(){
+  await fetch('/shutdown')
 }
 
 
