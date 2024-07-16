@@ -29,12 +29,12 @@ body{
 
 .barcode{
   font-family: orbit;
-font-size: 10px;
+font-size: 20px;
 }
 
 .weight{
   font-family: orbit;
-  font-size: 50px
+  font-size: 80px;
   direction: ltr;
 }
 
