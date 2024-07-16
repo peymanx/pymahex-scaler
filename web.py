@@ -21,6 +21,10 @@ def index():
 def barcode():
     return render_template('barcode.html')
 
+@app.route('/troubleshoots')
+def barcode():
+    return render_template('troubleshoots.html')
+
 
 
 @app.route('/download')
@@ -65,6 +69,21 @@ def introduction():
     intro.run(4)
     return 'intro done'
 
+@app.route('/led/<name>')
+def introduction(name):
+    import leds
+    match name:
+        case 'tehran':
+            leds.tehran.invert()
+        case 'providence':
+            leds.providence.invert()
+        case 'reject':
+            leds.reject.invert()
+        case 'error':
+            leds.error.invert()
+            
+            
+    return 'intro done'
 
 
 

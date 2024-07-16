@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ترازوی هوشمند </title>
+   <link rel="stylesheet" href="/style.css">
+
+</head>
+<body>
+  
+    <p style="text-align: center;">
+  <img src="logo.png" alt="راهکارسازان آوان" style="width:200px">
+    </p>
+  
+  
+<img src="line.png" style="width:300px"><br/><br/>
+
+
+    <a  onclick="led('tehran')"  class='button-54 '  style="  background-color: #ffffff  !important;"> تهران</a> 
+    &nbsp;&nbsp;&nbsp;
+    <a  onclick="led('providence')"  class='button-54'  style="  background-color: #ffffff  !important;" > شهرستان ها</a>
+    <br/><br/><br/>
+
+    <a  onclick="led('reject')"  class='button-54 '  style="  background-color: #ffffff  !important;"> بدون هویت</a> 
+    &nbsp;&nbsp;&nbsp;
+    <a  onclick="led('error')"  class='button-54'  style="  background-color: #de0000  !important;" > خطای سیستمی</a>
+    <br/><br/><br/>
+
+
+    <a onclick="intro()"  class='button-54'  style="  background-color: #ffffff  !important;width:200px" > بررسی LEDها </a>
+    <br/><br/><br/>
+
+    
+
+    <br/><img src="line.png" style="width:300px"><br/><br/>
+
+    <a href='/'  class='button-54'  style="  background-color: #ffffff  !important;" >بازگشت </a>
+       <br/><br/><br/>
+
+<script>
+
+async function led(name){
+  await fetch('/led/'+name)
+}
+
+async function intro(){
+  await fetch('/intro')
+}
+
+
+</script>
+
+</body>
+</html>
