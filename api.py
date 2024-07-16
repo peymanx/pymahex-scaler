@@ -22,7 +22,7 @@ def log(barcode, apiResult, date, weight):
     record = f'{barcode},{date},{weight}kg,{apiResult}\r\n'
     log_file = Path(__file__).parent.joinpath('database/log.csv')
     with open(log_file, "a") as logger:
-        logger.write(barcode)
+        logger.write(record)
         
     bar = Path(__file__).parent.joinpath('database/barcode.txt')
     with open(bar, "w") as file:
