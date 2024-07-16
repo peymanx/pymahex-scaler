@@ -38,9 +38,6 @@ def reboot():
     return 'halt'
 
 
-
-
-
 @app.route('/download')
 def downloadFile():
     path = "/home/peyman/pymahex-scaler/database"

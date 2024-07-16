@@ -4,7 +4,7 @@ from pyfiglet import Figlet
 
 global display_on_screen, last
 display_on_screen = False
-last = 0.0
+last = -1.0
 
 
 def normalize(s):
@@ -26,7 +26,7 @@ def listen():
             tener+=1
             if tener > 10:
                 if len(buffer)==0: 
-                    last=-100
+                    last=0.0
                 tener=0
             data = serialPort.read(bytes_sent)
             buffer+=data.decode()
@@ -41,14 +41,15 @@ def listen():
                     #print(str(float(weight))+ "kg             \033[?25l",end='\r')
                     fweight = float(weight)
                     if last != fweight:
-                        if display_on_screen:
-                            print('\033[5A\033[2K', end='')
-                            f = Figlet(font='smblock')                        
-                            fig= f"{fweight:2.2f}kg"
-                            print(f.renderText(fig))
                         last = fweight
                 except:
                     ...
+            
+            if display_on_screen:
+                print('\033[5A\033[2K', end='')
+                f = Figlet(font='smblock')                        
+                fig= f"{last:2.2f}kg"
+                print(f.renderText(fig))
 
                     
         except KeyboardInterrupt:
