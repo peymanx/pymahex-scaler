@@ -60,36 +60,39 @@ def send_to_ecourier(barcode, weight):
     'Content-Type': 'application/json'
     }
 
+    try:
+        response = requests.request("POST", url, headers=headers, data=payload)
 
-    response = requests.request("POST", url, headers=headers, data=payload)
-
-    print('E-Courier Answer:', color=print.HIGHLIGHTED_YELLOW)            
-    if response.status_code == 200 and response.text.__contains__(barcode):
-        json_object = json.loads(response.text)
-        json_formatted_str = json.dumps(json_object, indent=2)
-        print(json_formatted_str)
-        if is_tehran(response.text):
-            print('Tehran', color=print.HIGHLIGHTED_GREEN)
-            log(barcode, 'Tehran', now, weight) 
-            return ApiResult.TEHRAN
+        print('E-Courier Answer:', color=print.HIGHLIGHTED_YELLOW)            
+        if response.status_code == 200 and response.text.__contains__(barcode):
+            json_object = json.loads(response.text)
+            json_formatted_str = json.dumps(json_object, indent=2)
+            print(json_formatted_str)
+            if is_tehran(response.text):
+                print('Tehran', color=print.HIGHLIGHTED_GREEN)
+                log(barcode, 'Tehran', now, weight) 
+                return ApiResult.TEHRAN
+            else:
+                print('Providence', color=print.HIGHLIGHTED_GREEN)
+                log(barcode, 'Providence', now, weight) 
+                return ApiResult.PROVIDENCE
+            
+        
+        elif response.text == '[]':
+            print(response.text)                
+            print('Parcel Rejected', color=print.HIGHLIGHTED_RED)
+            log(barcode, 'Rejected', now, weight) 
+            return ApiResult.REJECT
         else:
-            print('Providence', color=print.HIGHLIGHTED_GREEN)
-            log(barcode, 'Providence', now, weight) 
-            return ApiResult.PROVIDENCE
+            print('Connection Error', color=print.HIGHLIGHTED_RED)   
+            log(barcode, 'Connection Error', now, weight)       
+            return ApiResult.ERROR
+    except:
+        print('Connection Error2', color=print.HIGHLIGHTED_RED)
+        log(barcode, 'Connection Error', now, weight) 
+        return ApiResult.ERROR
         
     
-    elif response.text == '[]':
-        print(response.text)                
-        print('Parcel Rejected', color=print.HIGHLIGHTED_RED)
-        log(barcode, 'Rejected', now)
-        return ApiResult.REJECT
-    else:
-        print('Connection Error', color=print.HIGHLIGHTED_RED)   
-        log(barcode, 'Connection Error', now, weight)       
-        return ApiResult.ERROR
-
-    
-
 
 
 if __name__ == '__main__':
