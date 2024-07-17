@@ -34,7 +34,10 @@ while True:
            w = weight.get()
            print(f'The weight is: {w}kg')
            
-           if len(barcode)>3:
+           if barcode in ["-1", "exit","q"]:
+                break
+            
+           if len(barcode)>3 and not barcode.startswith(':'):
                 result = Api.send_to_ecourier(barcode, w)
                 leds.turn_off_all()
                 match result:
@@ -52,8 +55,11 @@ while True:
                         buzzer.error()
            buzzer.click()
             
-           if barcode in ["-1", "exit","q"]:
-                break
+           if barcode == ':inro':
+               import intro
+               intro.run(4)
+
+            
 
        except KeyboardInterrupt:
            break
