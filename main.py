@@ -55,7 +55,7 @@ while True:
                         buzzer.error()
            buzzer.click()
             
-           if barcode == ':inro':
+           if barcode == ':intro':
                import intro
                intro.run(4)
 
