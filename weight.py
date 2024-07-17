@@ -2,19 +2,20 @@ import serial, os
 from pyfiglet import Figlet
 
 
-global display_on_screen, last
+global display_on_screen, current_weight
 display_on_screen = False
-last = -1.0
+last =-1.0
+current_weight = 0.0
 
 
 def normalize(s):
     return s.replace(" ", "").replace("\r", "").replace("\n", "")
 
 def get():
-    return last
+    return current_weight
 
 def listen():    
-    global display_on_screen, last
+    global display_on_screen, current_weight
     port = "/dev/ttyS0"
     bytes_sent = 24
     serialPort = serial.Serial(port, 9600, timeout = 0.01)
@@ -36,8 +37,8 @@ def listen():
                 try:
                     #print(str(float(weight))+ "kg             \033[?25l",end='\r')
                     fweight = float(weight)
-                    if last != fweight:
-                        last = fweight
+                    if current_weight != fweight:
+                        current_weight = fweight
                 except:
                     ...
                     
@@ -46,11 +47,12 @@ def listen():
             #         last=0.0
             #     tener=0
                 
-            if display_on_screen:
+            if display_on_screen and current_weight!= last:
                 print('\033[5A\033[2K', end='')
                 f = Figlet(font='smblock')                        
-                fig= f"{last:2.2f}kg        "
+                fig= f"{current_weight:2.2f}kg        "
                 print(f.renderText(fig))
+                last = current_weight
 
                     
         except KeyboardInterrupt:
