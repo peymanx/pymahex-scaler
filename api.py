@@ -31,8 +31,13 @@ def log(barcode, apiResult, date, weight):
     w = Path(__file__).parent.joinpath('database/weight.txt')
     with open(w, "w") as file:
         file.write(str(weight))
+     
+    city = Path(__file__).parent.joinpath('database/city.txt')
+    with open(city, "w") as file:
+        file.write(str(apiResult))
         
                
+                
         
 
 def send_to_ecourier(barcode, weight):
@@ -69,7 +74,8 @@ def send_to_ecourier(barcode, weight):
             json_formatted_str = json.dumps(json_object, indent=2)
             print(json_formatted_str)
             if is_tehran(response.text):
-                print('Tehran', color=print.HIGHLIGHTED_GREEN)
+                city = 'Tehran'
+                print(city, color=print.HIGHLIGHTED_GREEN)
                 log(barcode, 'Tehran', now, weight) 
                 return ApiResult.TEHRAN
             else:

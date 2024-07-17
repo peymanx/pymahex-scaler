@@ -58,6 +58,7 @@ def clear():
 def get_data():
     barcode = 'not set'
     weight = -2
+    city = 'rj'
     last_barcode = Path(__file__).parent.joinpath('database/barcode.txt')
     with open(last_barcode, "r") as file:
         barcode = file.readline()
@@ -65,8 +66,13 @@ def get_data():
     last_weight = Path(__file__).parent.joinpath('database/weight.txt')
     with open(last_weight, "r") as file:
         weight = file.readline()
+        
+    last_city = Path(__file__).parent.joinpath('database/city.txt')
+    with open(last_city, "r") as file:
+        city = file.readline()
+        
 
-    return jsonify(weight=weight, barcode = barcode)
+    return jsonify(weight=weight, barcode = barcode, city = city)
 
 @app.route('/buzzer')
 def buzzer():
