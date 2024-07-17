@@ -41,10 +41,10 @@ def listen():
                 except:
                     ...
                     
-            if tener > 10:
-                if len(buffer)==0: 
-                    last=0.0
-                tener=0
+            # if tener > 10:
+            #     if len(buffer)==0: 
+            #         last=0.0
+            #     tener=0
                 
             if display_on_screen:
                 print('\033[5A\033[2K', end='')
