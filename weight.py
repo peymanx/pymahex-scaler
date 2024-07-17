@@ -15,7 +15,7 @@ def get():
     return current_weight
 
 def listen():    
-    global display_on_screen, current_weight
+    global display_on_screen, current_weight, last
     port = "/dev/ttyS0"
     bytes_sent = 24
     serialPort = serial.Serial(port, 9600, timeout = 0.01)
