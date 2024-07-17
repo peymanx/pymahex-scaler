@@ -54,7 +54,17 @@ async function get_data(){
           
           {
             barcode.innerHTML = result.barcode;
-            city.innerHTML = result.city;
+            switch(result.city.toLowerCase()){
+            case 'tehran':
+                 city.innerHTML = 'تهران';break;
+            case 'providence':
+                 city.innerHTML = 'شهرستان';break;
+            case 'reject':
+                 city.innerHTML = 'بدون هویت';break;
+            case 'error':
+                 city.innerHTML = 'خطای سیستمی';break;
+
+            }
             weight.innerHTML = result.weight +'kg';
             last_barcode = result.barcode;
             last_weight = result.weight;
