@@ -39,6 +39,13 @@ font-size: 25px;
 }
 
 
+.city{
+  font-family: orbit;
+  font-size: 68px;
+  direction: ltr;
+}
+
+
 p{
   font-family: tehran;
   letter-spacing: 1px;
