@@ -31,6 +31,7 @@
 
 
 let last_barcode = 'not set'
+let last_weight = 0.0
 
 
 async function get_data(){
@@ -42,10 +43,14 @@ async function get_data(){
           let barcode = document.getElementById('barcode');
           let weight = document.getElementById('weight');
 
-          if(result && result.barcode != last_barcode && result.barcode.length>0 ) {
+          if(result && ((result.barcode != last_barcode && result.barcode.length>0) ||
+                       (result.weight != last_weight )))
+          
+          {
             barcode.innerHTML = result.barcode;
             weight.innerHTML = result.weight +'kg';
             last_barcode = result.barcode;
+            last_weight = result.weight;
         }
       })
       .catch(err => console.log(err));
