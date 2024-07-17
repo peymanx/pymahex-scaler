@@ -88,7 +88,7 @@ def send_to_ecourier(barcode, weight):
             log(barcode, 'Connection Error', now, weight)       
             return ApiResult.ERROR
     except:
-        print('Connection Error', color=print.HIGHLIGHTED_RED)
+        print('Connection Error2', color=print.HIGHLIGHTED_RED)
         log(barcode, 'Connection Error', now, weight) 
         return ApiResult.ERROR
         
