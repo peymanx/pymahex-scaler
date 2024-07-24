@@ -20,7 +20,7 @@ def listen():
     bytes_sent = 24
     serialPort = serial.Serial(port, 9600, timeout = 0.01)
     buffer = ''     
-    f = Figlet(font='smblock')  
+    f = Figlet()  
     tener = 0
     while True:
         try:
