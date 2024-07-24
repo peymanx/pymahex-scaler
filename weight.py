@@ -49,7 +49,7 @@ def listen():
                 
             if display_on_screen and current_weight!= last:
                 print('\033[5A\033[2K', end='')
-                f = Figlet(font='smblock')                        
+                f = Figlet()                        
                 fig= f"{current_weight:2.2f}kg        "
                 print(f.renderText(fig))
                 last = current_weight
