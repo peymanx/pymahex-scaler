@@ -20,9 +20,9 @@ def silent():
     gpio.output(pin, gpio.LOW)
 
 def click():
-    play(0.003)
+    play(0.03)
     sleep(0.01)
-    play(0.002)
+    play(0.02)
 
 def intro():
     play(0.1)
