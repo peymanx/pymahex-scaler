@@ -1,4 +1,4 @@
-import serial_tester, os
+import serial, os
 
 
 
@@ -18,7 +18,7 @@ def listen():
     global  current_weight, last
     port = "/dev/ttyS0"
     bytes_sent = 24
-    serialPort = serial_tester.Serial(port, 9600, timeout = 0.01)
+    serialPort = serial.Serial(port, 9600, timeout = 0.01)
     buffer = ''     
   
     while True:
