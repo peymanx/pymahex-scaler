@@ -27,6 +27,7 @@ def listen():
             buffer+=data.decode()
             if len(buffer)>0:
                 print(buffer)
+                buffer = ''
         except:
             ...
 
