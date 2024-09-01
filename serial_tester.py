@@ -25,7 +25,8 @@ def listen():
         try:
             data = serialPort.read(bytes_sent)
             buffer+=data.decode()
-            print(buffer)
+            if len(buffer)>0:
+                print(buffer)
         except:
             ...
 
