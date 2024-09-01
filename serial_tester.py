@@ -22,10 +22,12 @@ def listen():
     buffer = ''     
   
     while True:
-
-        data = serialPort.read(bytes_sent)
-        buffer+=data.decode()
-        print(buffer)
+        try:
+            data = serialPort.read(bytes_sent)
+            buffer+=data.decode()
+            print(buffer)
+        except:
+            ...
 
 
 listen()
