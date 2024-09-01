@@ -1,4 +1,4 @@
-import serial, os
+import serial_tester, os
 from pyfiglet import Figlet
 
 
@@ -18,7 +18,7 @@ def listen():
     global display_on_screen, current_weight, last
     port = "/dev/ttyS0"
     bytes_sent = 24
-    serialPort = serial.Serial(port, 9600, timeout = 0.01)
+    serialPort = serial_tester.Serial(port, 9600, timeout = 0.01)
     buffer = ''     
     f = Figlet()  
     tener = 0
