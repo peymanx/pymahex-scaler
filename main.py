@@ -37,12 +37,7 @@ while True:
            if barcode in ["-1", "exit","q"]:
                 break
            
-           if w <=0:
-               leds.error.on()
-               buzzer.error()
-               print('The weight is 0')
-               continue
-            
+           
            if len(barcode)>3 and not barcode.startswith(':'):
                 result = Api.send_to_ecourier(barcode, w)
                 leds.turn_off_all()
