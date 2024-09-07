@@ -38,10 +38,8 @@ def intro():
     sleep(0.01)
 
 
-
-
 def error():
-    play(0.9)
+    play(2.5)
 
 if __name__ == '__main__':
     delay = 0.5

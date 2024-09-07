@@ -35,10 +35,6 @@ def log(barcode, apiResult, date, weight):
     city = Path(__file__).parent.joinpath('database/city.txt')
     with open(city, "w") as file:
         file.write(str(apiResult))
-        
-               
-                
-        
 
 def send_to_ecourier(barcode, weight):
     now = datetime.datetime.utcnow().isoformat()
