@@ -9,7 +9,7 @@ class ApiResult(Enum):
     REJECT = 3
     ERROR = -1
 
-url = "http://172.24.24.59:8011/v1/parcels/scan"
+url = "http://172.24.24.59:8011/v2/parcels/scan"
 p = Path(__file__).parent.joinpath("database/tehran_db.txt")
 tehran_db = p.read_text().splitlines()
 
@@ -38,16 +38,18 @@ def log(barcode, apiResult, date, weight):
 
 def send_to_ecourier(barcode, weight):
     now = datetime.datetime.utcnow().isoformat()
-    payload = json.dumps([
-    {
-        "parcelId": barcode,
-        "length": 0,
-        "width": 0,
-        "height": 0,
-        "grossWeight": weight,
-        "scannedOn": now
-    }
-    ])
+    payload = json.dumps({
+    "referenceId":"DSCALE_001",
+    "parcels":[        
+        {
+            "parcelId": barcode,
+            "length": 0,
+            "width": 0,
+            "height": 0,
+            "grossWeight": weight,
+            "scannedOn": now
+        }
+    ]})
     
     
     print('Data to send:', color=print.HIGHLIGHTED_YELLOW)
